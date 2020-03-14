@@ -31,29 +31,24 @@ const sizes = {
   },
 }
 
-const NeoToggle = ({ size }) => {
+const NeuToggle = ({ size }) => {
   const [toggle, setToggle] = useState(false)
   const { divWidth, divHeight, divRadius } = sizes[size] || {}
 
   return (
-    <ToggleWrapper
-      width={divWidth}
-      height={divHeight}
-      radius={divRadius}
-    >
-      <Toggle 
-        size={sizes[size]}
-        toggle={toggle} 
-        onClick={() => setToggle(!toggle)}
-      />
+    <ToggleWrapper width={divWidth} height={divHeight} radius={divRadius}>
+      <Toggle size={sizes[size]} toggle={toggle} onClick={() => setToggle(!toggle)} />
     </ToggleWrapper>
   )
 }
-NeoToggle.propTypes = {
+NeuToggle.propTypes = {
   size: PropTypes.oneOf(['big', 'medium', 'small']),
 }
+NeuToggle.defaultProps = {
+  size: 'small',
+}
 
-export default NeoToggle
+export default NeuToggle
 
 const ToggleWrapper = styled.div`
   border-radius: ${(props) => `${props.radius}px`};
@@ -64,15 +59,14 @@ const ToggleWrapper = styled.div`
   height: ${(props) => `${props.height}px`};
   position: relative;
   display: flex;
-  flex-direction: ${(props) => props.column ? 'column' : 'row'};
+  flex-direction: ${(props) => (props.column ? 'column' : 'row')};
 `
 
 const Toggle = styled.div`
   border-radius: 40px;
   background: #cbcbcb;
   border: 4px solid #cbcbcb;
-  box-shadow: 6px 6px 13px #b4b4b4, -6px -6px 13px #e4e4e4, 
-  inset 6px 6px 13px #b4b4b4, inset -6px -6px 13px #e4e4e4;
+  box-shadow: 6px 6px 13px #b4b4b4, -6px -6px 13px #e4e4e4, inset 6px 6px 13px #b4b4b4, inset -6px -6px 13px #e4e4e4;
 
   margin: auto;
   width: ${(props) => `${props.size.toggleWidth}px`};
@@ -87,7 +81,7 @@ const Toggle = styled.div`
     border-radius: 40px;
     position: absolute;
     top: ${(props) => `${props.size.roundTop}px`};
-    left: ${(props) => props.toggle ? `${props.size.roundLefts[1]}px` : `${props.size.roundLefts[0]}px`};
+    left: ${(props) => (props.toggle ? `${props.size.roundLefts[1]}px` : `${props.size.roundLefts[0]}px`)};
     width: ${(props) => `${props.size.roundSize}px`};
     height: ${(props) => `${props.size.roundSize}px`};
     background: #cbcbcb;
@@ -102,10 +96,10 @@ const Toggle = styled.div`
     border-radius: 50px;
     position: absolute;
     top: ${(props) => `${props.size.dotTop}px`};
-    left: ${(props) => props.toggle ? `${props.size.dotLefts[1]}px` : `${props.size.dotLefts[0]}px`};
+    left: ${(props) => (props.toggle ? `${props.size.dotLefts[1]}px` : `${props.size.dotLefts[0]}px`)};
     width: ${(props) => `${props.size.dotSize}px`};
     height: ${(props) => `${props.size.dotSize}px`};
-    background: ${(props) => props.toggle ? 'rgba(153, 42, 18, 1)' : '#525252'};
-    box-shadow: ${(props) => props.toggle ? '0px 0px 10px 4px rgba(153,42,18,0.4)' : 'none'};
+    background: ${(props) => (props.toggle ? 'rgba(153, 42, 18, 1)' : '#525252')};
+    box-shadow: ${(props) => (props.toggle ? '0px 0px 10px 4px rgba(153,42,18,0.4)' : 'none')};
   }
 `

@@ -8,9 +8,7 @@ const divRadius = 10
 
 const Digit = ({ digit, radial }) => (
   <Wrapper width={divWidth} height={divHeight} radius={divRadius}>
-    <DigitText radial={radial}>
-      {digit}
-    </DigitText>
+    <DigitText radial={radial}>{digit}</DigitText>
     {radial && <Radial />}
   </Wrapper>
 )
@@ -23,17 +21,17 @@ Digit.defaultProps = {
   radial: false,
 }
 
-const NeoDigitalClock = ({ width, height, revert }) => {
+const NeuDigitalClock = ({ width, height, revert }) => {
   const updateDate = () => {
     console.log('hey')
   }
-  
+
   useEffect(() => {
     const interval = setInterval(updateDate, 1000)
     return clearInterval(interval)
   }, [])
 
-  return(
+  return (
     <Wrapper width={width} height={height} revert={revert}>
       <DigitsWrapper>
         <Digit digit={1} />
@@ -45,47 +43,44 @@ const NeoDigitalClock = ({ width, height, revert }) => {
     </Wrapper>
   )
 }
-NeoDigitalClock.propTypes = {
+NeuDigitalClock.propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
   revert: PropTypes.bool,
 }
-NeoDigitalClock.defaultProps = {
+NeuDigitalClock.defaultProps = {
   width: null,
   height: null,
   revert: false,
 }
 
-export default NeoDigitalClock
+export default NeuDigitalClock
 
 const Wrapper = styled.div`
-  border-radius: ${(props) => props.radius ? `${props.radius}px` : '25px'};
+  border-radius: ${(props) => (props.radius ? `${props.radius}px` : '25px')};
   background: #cbcbcb;
-  box-shadow: ${(props) => props.revert ? 'inset 8px 8px 13px #b4b4b4, inset -8px -8px 13px #e4e4e4' : '8px 8px 13px #b4b4b4, -8px -8px 13px #e4e4e4'};
+  box-shadow: ${(props) => (props.revert ? 'inset 8px 8px 13px #b4b4b4, inset -8px -8px 13px #e4e4e4' : '8px 8px 13px #b4b4b4, -8px -8px 13px #e4e4e4')};
   margin: auto;
-  width: ${(props) => props.width ? `${props.width}rem` : '100%'};
-  height: ${(props) => props.height ? `${props.height}rem` : '100%'};
+  width: ${(props) => (props.width ? `${props.width}rem` : '100%')};
+  height: ${(props) => (props.height ? `${props.height}rem` : '100%')};
   position: relative;
   text-align: center;
   display: flex;
 `
-
 const DigitsWrapper = styled.div`
   margin: auto;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 1rem;
-` 
-
+`
 const DigitText = styled.p`
   margin: auto;
   font-size: 1.8rem;
-  color: ${(props) => props.radial ? 'rgba(153, 42, 18, 1)' : '#525252'};
+  color: ${(props) => (props.radial ? 'rgba(153, 42, 18, 1)' : '#525252')};
 `
-
 const Radial = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  box-shadow: 0px 2px 18px 9px rgba(153,42,18,0.4);
+  box-shadow: 0px 2px 18px 9px rgba(153, 42, 18, 0.4);
 `
