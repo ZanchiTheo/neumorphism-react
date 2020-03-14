@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
+import theme from '../../theme'
 
 const sizes = {
   medium: {
@@ -52,7 +53,7 @@ export default NeuToggle
 
 const ToggleWrapper = styled.div`
   border-radius: ${(props) => `${props.radius}px`};
-  background: #cbcbcb;
+  background: ${() => theme.colors.lightGray};
   box-shadow: 8px 8px 13px #b4b4b4, -8px -8px 13px #e4e4e4, inset 0px 0px 0px #b4b4b4, inset 0px 0px 0px #e4e4e4;
   margin: auto;
   width: ${(props) => `${props.width}px`};
@@ -64,8 +65,8 @@ const ToggleWrapper = styled.div`
 
 const Toggle = styled.div`
   border-radius: 40px;
-  background: #cbcbcb;
-  border: 4px solid #cbcbcb;
+  background: ${() => theme.colors.lightGray};
+  border: 4px solid ${() => theme.colors.lightGray};
   box-shadow: 6px 6px 13px #b4b4b4, -6px -6px 13px #e4e4e4, inset 6px 6px 13px #b4b4b4, inset -6px -6px 13px #e4e4e4;
 
   margin: auto;
@@ -84,7 +85,7 @@ const Toggle = styled.div`
     left: ${(props) => (props.toggle ? `${props.size.roundLefts[1]}px` : `${props.size.roundLefts[0]}px`)};
     width: ${(props) => `${props.size.roundSize}px`};
     height: ${(props) => `${props.size.roundSize}px`};
-    background: #cbcbcb;
+    background: ${() => theme.colors.lightGray};
     box-shadow: 1px 1px 13px #727272, -1px -1px 13px #cccccc;
     /* box-shadow: 3px 3px 13px #727272, -3px -3px 13px #ffffff; */
   }
@@ -99,7 +100,7 @@ const Toggle = styled.div`
     left: ${(props) => (props.toggle ? `${props.size.dotLefts[1]}px` : `${props.size.dotLefts[0]}px`)};
     width: ${(props) => `${props.size.dotSize}px`};
     height: ${(props) => `${props.size.dotSize}px`};
-    background: ${(props) => (props.toggle ? 'rgba(153, 42, 18, 1)' : '#525252')};
+    background: ${(props) => (props.toggle ? 'rgba(153, 42, 18, 1)' : theme.colors.darkGray)};
     box-shadow: ${(props) => (props.toggle ? '0px 0px 10px 4px rgba(153,42,18,0.4)' : 'none')};
   }
 `

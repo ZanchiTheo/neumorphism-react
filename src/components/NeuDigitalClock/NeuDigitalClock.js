@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
+import theme from '../../theme'
 
 const divWidth = 1.8
 const divHeight = 3
@@ -58,7 +59,7 @@ export default NeuDigitalClock
 
 const Wrapper = styled.div`
   border-radius: ${(props) => (props.radius ? `${props.radius}px` : '25px')};
-  background: #cbcbcb;
+  background-color: ${() => theme.colors.lightGray};
   box-shadow: ${(props) => (props.revert ? 'inset 8px 8px 13px #b4b4b4, inset -8px -8px 13px #e4e4e4' : '8px 8px 13px #b4b4b4, -8px -8px 13px #e4e4e4')};
   margin: auto;
   width: ${(props) => (props.width ? `${props.width}rem` : '100%')};
@@ -76,7 +77,7 @@ const DigitsWrapper = styled.div`
 const DigitText = styled.p`
   margin: auto;
   font-size: 1.8rem;
-  color: ${(props) => (props.radial ? 'rgba(153, 42, 18, 1)' : '#525252')};
+  color: ${(props) => (props.radial ? 'rgba(153, 42, 18, 1)' : theme.colors.darkGray)};
 `
 const Radial = styled.div`
   position: absolute;

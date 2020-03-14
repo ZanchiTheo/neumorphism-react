@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
+import theme from '../../theme'
 
 const tirets = [
   { hour: 1, teta: 30 },
@@ -77,9 +78,9 @@ const Clock = styled.div`
   display: flex;
   width: ${(props) => `${props.size}px`};
   height: ${(props) => `${props.size}px`};
-  /* background-color: #cbcbcb; */
+  background-color: ${() => theme.colors.lightGray};
   /* background: linear-gradient(145deg, #b8b8b8, #b8b8b8 20%, #dadada); */
-  /* box-shadow: 28px 28px 84px #525252, -28px -28px 84px #ffffff; */
+  /* box-shadow: 28px 28px 84px ${() => theme.colors.darkGray}, -28px -28px 84px #ffffff; */
   box-shadow: 8px 8px 13px #b4b4b4, -8px -8px 13px #e4e4e4;
 `
 
@@ -117,7 +118,7 @@ const Tiret = styled.div`
     height: 6px;
     top: -2px;
     border-radius: 2px;
-    background-color: #525252;
+    background-color: ${() => theme.colors.darkGray};
   }
 `
 
@@ -133,7 +134,7 @@ const Center = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
-  background-color: #525252;
+  background-color: ${() => theme.colors.darkGray};
   border-radius: 10px;
   z-index: 3;
 `
@@ -144,7 +145,7 @@ const Seconds = styled.div`
   position: absolute;
   bottom: calc(50%);
   left: calc(50% - 1px);
-  background-color: #525252;
+  background-color: ${() => theme.colors.darkGray};
   border-radius: 40px;
   z-index: 2;
 
@@ -164,7 +165,7 @@ const Minutes = styled.div`
   position: absolute;
   bottom: calc(50%);
   left: calc(50% - 2px);
-  background-color: #525252;
+  background-color: ${() => theme.colors.darkGray};
   border-radius: 40px;
   z-index: 1;
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
+import theme from '../../theme'
 
 const NeuButton = ({
   children, width, height, buttonClick, gradient, clicked, radius,
@@ -39,7 +40,7 @@ export default NeuButton
 
 const ButtonWrapper = styled.button`
   border-radius: ${(props) => props.radius}px;
-  background: #cbcbcb;
+  background: ${() => theme.colors.lightGray};
   box-shadow: 8px 8px 13px #b4b4b4, -8px -8px 13px #e4e4e4, inset 0px 0px 0px #b4b4b4, inset 0px 0px 0px #e4e4e4;
   margin: auto;
   width: ${(props) => (props.width ? `${props.width}px` : '100%')};
@@ -50,6 +51,8 @@ const ButtonWrapper = styled.button`
     box-shadow: 0px 0px 0px #b4b4b4, 0px 0px 0px #e4e4e4, inset 8px 8px 13px #b4b4b4, inset -8px -8px 13px #e4e4e4;
   }
   position: relative;
+  font-size: 20px;
+  color: ${() => theme.colors.darkGray};
 `
 
 const Radial = styled.div`

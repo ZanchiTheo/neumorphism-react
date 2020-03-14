@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
+import theme from '../../theme'
 
 const NeuTextInput = ({
   width, height, fontSize, type, placeholder,
@@ -38,12 +39,12 @@ const Input = styled.input`
   width: 100%;
   height: 100%;
   border-radius: 40px;
-  background: #cbcbcb;
-  border: 4px solid #cbcbcb;
+  background-color: ${() => theme.colors.lightGray};
+  border: 4px solid ${() => theme.colors.lightGray};
   box-shadow: 6px 6px 13px #b4b4b4, -6px -6px 13px #e4e4e4, inset 6px 6px 13px #b4b4b4, inset -6px -6px 13px #e4e4e4;
   padding: 0 1.5rem;
   font-size: ${(props) => `${props.fontSize}px`};
-  color: #525252;
+  color: ${() => theme.colors.darkGray};
   outline: none;
 `
 Input.defaultProps = {
