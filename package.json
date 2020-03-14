@@ -1,0 +1,49 @@
+{
+  "name": "react-neumorphism",
+  "version": "0.0.1",
+  "description": "Neumorphism component library for React",
+  "author": "Theo Zanchi",
+  "main": "index.js",
+  "scripts": {
+    "start": "styleguidist server",
+    "pretest": "./node_modules/.bin/eslint . --fix",
+    "eslint": "eslint '**/*.{js,jsx}'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "private": false,
+  "peerDependencies": {
+    "@emotion/core": "10.x",
+    "@emotion/styled": "10.x",
+    "react": "^16.x",
+    "react-dom": "^16.x"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-react": "^7.8.3",
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.8.0",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-styleguidist": "^11.0.1",
+    "webpack": "^4.42.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,jsx}": [
+      "eslint",
+      "prettier-eslint --write",
+      "git add"
+    ]
+  }
+}
