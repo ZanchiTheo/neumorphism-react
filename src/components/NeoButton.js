@@ -13,6 +13,7 @@ const NeoButton = ({ children, width, height, buttonClick, gradient, clicked, ra
     </ButtonWrapper>
   )
 }
+
 NeoButton.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
