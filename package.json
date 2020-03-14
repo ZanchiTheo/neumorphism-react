@@ -8,7 +8,8 @@
     "start": "styleguidist server",
     "pretest": "./node_modules/.bin/eslint . --fix",
     "eslint": "eslint '**/*.{js,jsx}'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "prettier-eslint --write",
+    "lint-check": "prettier-eslint"
   },
   "keywords": [],
   "license": "ISC",
@@ -30,6 +31,7 @@
     "eslint-plugin-react": "^7.19.0",
     "husky": "^4.2.3",
     "lint-staged": "^10.0.8",
+    "prettier": "^1.19.1",
     "prettier-eslint": "^9.0.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
