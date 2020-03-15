@@ -1,8 +1,10 @@
 ```jsx
 import NeuButton from "./NeuButton";
-<div>
-  <NeuButton width={200} height={200}>
+import Layout from "../styleguide/Layout";
+<Layout height={300}>
+  <NeuButton width={150} height={100}>
     Simple button
   </NeuButton>
-</div>
+  <NeuButton width={150} height={100} />
+</Layout>
 ```

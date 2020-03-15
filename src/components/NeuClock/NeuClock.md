@@ -1,4 +1,7 @@
 ```jsx
 import NeuClock from "./NeuClock";
-<NeuClock />
+import Layout from "../styleguide/Layout";
+<Layout height={300}>
+  <NeuClock />
+</Layout>
 ```

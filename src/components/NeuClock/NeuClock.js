@@ -73,6 +73,7 @@ NeuClock.defaultProps = {
   color: theme.colors.lightGray,
 }
 
+/** @component */
 export default NeuClock
 
 const Clock = styled.div`
@@ -83,14 +84,14 @@ const Clock = styled.div`
   height: ${(props) => `${props.size}px`};
   background-color: ${() => theme.colors.lightGray};
   /* background: linear-gradient(145deg, #b8b8b8, #b8b8b8 20%, #dadada); */
-  box-shadow: ${(props) => `${getLightBoxShadow(props.color, 12, theme.intensity, false)}, ${getDarkBoxShadow(props.color, 12, theme.intensity, false)}`};
+  box-shadow: ${(props) => `${getLightBoxShadow(props.color, theme.distance, theme.intensity, false)}, ${getDarkBoxShadow(props.color, theme.distance, theme.intensity, false)}`};
 `
 
 const InnerClock = styled.div`
   width: ${(props) => `${props.size}px`};
   height: ${(props) => `${props.size}px`};
   border: ${(props) => (props.donut ? '16px solid #cbcbcb' : 'none')};
-  box-shadow: ${(props) => (props.donut ? `${getLightBoxShadow(props.color, 12, theme.intensity, true)}, ${getDarkBoxShadow(props.color, 12, theme.intensity, true)}` : 'none')};
+  box-shadow: ${(props) => (props.donut ? `${getLightBoxShadow(props.color, theme.distance, theme.intensity, true)}, ${getDarkBoxShadow(props.color, theme.distance, theme.intensity, true)}` : 'none')};
   margin: auto;
   position: relative;
   border-radius: 100%;

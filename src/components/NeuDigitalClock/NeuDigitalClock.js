@@ -62,17 +62,18 @@ NeuDigitalClock.defaultProps = {
   color: theme.colors.lightGray,
 }
 
+/** @component */
 export default NeuDigitalClock
 
 const Wrapper = styled.div`
   border-radius: ${(props) => (props.radius ? `${props.radius}px` : '25px')};
   background-color: ${() => theme.colors.lightGray};
   box-shadow: ${(props) => (props.revert
-    ? `${getLightBoxShadow(props.color, 12, theme.intensity, true)}, ${getDarkBoxShadow(props.color, 12, theme.intensity, true)}`
-    : `${getLightBoxShadow(props.color, 12, theme.intensity, false)}, ${getDarkBoxShadow(props.color, 12, theme.intensity, false)}`)};
+    ? `${getLightBoxShadow(props.color, theme.distance, theme.intensity, true)}, ${getDarkBoxShadow(props.color, theme.distance, theme.intensity, true)}`
+    : `${getLightBoxShadow(props.color, theme.distance, theme.intensity, false)}, ${getDarkBoxShadow(props.color, theme.distance, theme.intensity, false)}`)};
   margin: auto;
-  width: ${(props) => (props.width ? `${props.width}rem` : '100%')};
-  height: ${(props) => (props.height ? `${props.height}rem` : '100%')};
+  width: ${(props) => (props.width ? `${props.width}px` : '100%')};
+  height: ${(props) => (props.height ? `${props.height}px` : '100%')};
   position: relative;
   text-align: center;
   display: flex;

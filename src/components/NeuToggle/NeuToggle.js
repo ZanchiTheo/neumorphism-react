@@ -52,12 +52,13 @@ NeuToggle.defaultProps = {
   color: theme.colors.lightGray,
 }
 
+/** @component */
 export default NeuToggle
 
 const ToggleWrapper = styled.div`
   border-radius: ${(props) => `${props.radius}px`};
   background: ${() => theme.colors.lightGray};
-  box-shadow: ${(props) => `${getLightBoxShadow(props.color, 8, theme.intensity, false)}, ${getDarkBoxShadow(props.color, 8, theme.intensity, false)}`};
+  box-shadow: ${(props) => `${getLightBoxShadow(props.color, theme.distance, theme.intensity, false)}, ${getDarkBoxShadow(props.color, theme.distance, theme.intensity, false)}`};
   margin: auto;
   width: ${(props) => `${props.width}px`};
   height: ${(props) => `${props.height}px`};

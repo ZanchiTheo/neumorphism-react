@@ -28,6 +28,7 @@ NeuTextInput.defaultProps = {
   color: theme.colors.lightGray,
 }
 
+/** @component */
 export default NeuTextInput
 
 const InputWrapper = styled.div`
@@ -44,9 +45,9 @@ const Input = styled.input`
   border-radius: 40px;
   background-color: ${() => theme.colors.lightGray};
   border: 4px solid ${() => theme.colors.lightGray};
-  box-shadow: ${(props) => `${getLightBoxShadow(props.color, 12, theme.intensity, false)}, ${getDarkBoxShadow(props.color, 12, theme.intensity, false)}, ${getLightBoxShadow(props.color, 12, theme.intensity, true)}, ${getDarkBoxShadow(
+  box-shadow: ${(props) => `${getLightBoxShadow(props.color, theme.distance, theme.intensity, false)}, ${getDarkBoxShadow(props.color, theme.distance, theme.intensity, false)}, ${getLightBoxShadow(props.color, 4, theme.intensity, true)}, ${getDarkBoxShadow(
     props.color,
-    12,
+    4,
     theme.intensity,
     true
   )}`};
