@@ -28,7 +28,14 @@ export const colorLuminance = (hex, lum = 0) => {
   return rgb
 }
 
-// Export const getDarkBoxShadow = (color, distance = 5, intensity) => {
-//   let blur = 10 + (2 * (distance - 5))
-//   return ``
-// }
+export const getDarkBoxShadow = (color, distance = 5, intensity = 15, inset = false) => {
+  const blur = 10 + 2 * (distance - 5)
+  const lum = intensity / 100
+  return `${inset ? 'inset' : ''} -${distance}px -${distance}px ${blur}px ${colorLuminance(color, lum)}`
+}
+
+export const getLightBoxShadow = (color, distance = 5, intensity = 15, inset = false) => {
+  const blur = 10 + 2 * (distance - 5)
+  const lum = (intensity / 100) * -1
+  return `${inset ? 'inset' : ''} ${distance}px ${distance}px ${blur}px ${colorLuminance(color, lum)}`
+}

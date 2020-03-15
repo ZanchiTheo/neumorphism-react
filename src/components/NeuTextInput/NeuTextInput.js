@@ -2,12 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import theme from '../../theme'
+import { getLightBoxShadow, getDarkBoxShadow } from '../../utils/colors'
 
 const NeuTextInput = ({
-  width, height, fontSize, type, placeholder,
+  width, height, fontSize, type, placeholder, color,
 }) => (
   <InputWrapper width={width} height={height}>
-    <Input fontSize={fontSize} placeholder={placeholder} type={type} />
+    <Input fontSize={fontSize} placeholder={placeholder} type={type} color={color} />
   </InputWrapper>
 )
 NeuTextInput.propTypes = {
@@ -16,6 +17,7 @@ NeuTextInput.propTypes = {
   fontSize: PropTypes.number,
   type: PropTypes.string,
   placeholder: PropTypes.string,
+  color: PropTypes.string,
 }
 NeuTextInput.defaultProps = {
   width: null,
@@ -23,6 +25,7 @@ NeuTextInput.defaultProps = {
   fontSize: 20,
   type: 'text',
   placeholder: 'Placeholder',
+  color: theme.colors.lightGray,
 }
 
 export default NeuTextInput
@@ -41,7 +44,12 @@ const Input = styled.input`
   border-radius: 40px;
   background-color: ${() => theme.colors.lightGray};
   border: 4px solid ${() => theme.colors.lightGray};
-  box-shadow: 6px 6px 13px #b4b4b4, -6px -6px 13px #e4e4e4, inset 6px 6px 13px #b4b4b4, inset -6px -6px 13px #e4e4e4;
+  box-shadow: ${(props) => `${getLightBoxShadow(props.color, 12, theme.intensity, false)}, ${getDarkBoxShadow(props.color, 12, theme.intensity, false)}, ${getLightBoxShadow(props.color, 12, theme.intensity, true)}, ${getDarkBoxShadow(
+    props.color,
+    12,
+    theme.intensity,
+    true
+  )}`};
   padding: 0 1.5rem;
   font-size: ${(props) => `${props.fontSize}px`};
   color: ${() => theme.colors.darkGray};

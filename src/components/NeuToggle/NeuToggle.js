@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import theme from '../../theme'
+import { getLightBoxShadow, getDarkBoxShadow } from '../../utils/colors'
 
 const sizes = {
   medium: {
@@ -32,21 +33,23 @@ const sizes = {
   },
 }
 
-const NeuToggle = ({ size }) => {
+const NeuToggle = ({ size, color }) => {
   const [toggle, setToggle] = useState(false)
   const { divWidth, divHeight, divRadius } = sizes[size] || {}
 
   return (
-    <ToggleWrapper width={divWidth} height={divHeight} radius={divRadius}>
-      <Toggle size={sizes[size]} toggle={toggle} onClick={() => setToggle(!toggle)} />
+    <ToggleWrapper width={divWidth} height={divHeight} radius={divRadius} color={color}>
+      <Toggle size={sizes[size]} toggle={toggle} onClick={() => setToggle(!toggle)} color={color} />
     </ToggleWrapper>
   )
 }
 NeuToggle.propTypes = {
   size: PropTypes.oneOf(['big', 'medium', 'small']),
+  color: PropTypes.string,
 }
 NeuToggle.defaultProps = {
   size: 'small',
+  color: theme.colors.lightGray,
 }
 
 export default NeuToggle
@@ -54,7 +57,7 @@ export default NeuToggle
 const ToggleWrapper = styled.div`
   border-radius: ${(props) => `${props.radius}px`};
   background: ${() => theme.colors.lightGray};
-  box-shadow: 8px 8px 13px #b4b4b4, -8px -8px 13px #e4e4e4, inset 0px 0px 0px #b4b4b4, inset 0px 0px 0px #e4e4e4;
+  box-shadow: ${(props) => `${getLightBoxShadow(props.color, 8, theme.intensity, false)}, ${getDarkBoxShadow(props.color, 8, theme.intensity, false)}`};
   margin: auto;
   width: ${(props) => `${props.width}px`};
   height: ${(props) => `${props.height}px`};
@@ -67,7 +70,13 @@ const Toggle = styled.div`
   border-radius: 40px;
   background: ${() => theme.colors.lightGray};
   border: 4px solid ${() => theme.colors.lightGray};
-  box-shadow: 6px 6px 13px #b4b4b4, -6px -6px 13px #e4e4e4, inset 6px 6px 13px #b4b4b4, inset -6px -6px 13px #e4e4e4;
+  /* box-shadow: 6px 6px 13px #b4b4b4, -6px -6px 13px #e4e4e4, inset 6px 6px 13px #b4b4b4, inset -6px -6px 13px #e4e4e4; */
+  box-shadow: ${(props) => `${getLightBoxShadow(props.color, 6, theme.intensity, false)}, ${getDarkBoxShadow(props.color, 1, theme.intensity, false)}, ${getLightBoxShadow(props.color, 6, theme.intensity, true)}, ${getDarkBoxShadow(
+    props.color,
+    1,
+    theme.intensity,
+    true
+  )}`};
 
   margin: auto;
   width: ${(props) => `${props.size.toggleWidth}px`};
@@ -86,8 +95,8 @@ const Toggle = styled.div`
     width: ${(props) => `${props.size.roundSize}px`};
     height: ${(props) => `${props.size.roundSize}px`};
     background: ${() => theme.colors.lightGray};
-    box-shadow: 1px 1px 13px #727272, -1px -1px 13px #cccccc;
-    /* box-shadow: 3px 3px 13px #727272, -3px -3px 13px #ffffff; */
+    /* box-shadow: 1px 1px 13px #727272, -1px -1px 13px #cccccc; */
+    box-shadow: ${(props) => `${getLightBoxShadow(props.color, 1, theme.intensity, false)}, ${getDarkBoxShadow(props.color, 1, theme.intensity, false)}`};
   }
 
   &::before {

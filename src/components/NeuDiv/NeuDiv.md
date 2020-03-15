@@ -1,4 +1,4 @@
 ```jsx
 import NeuDiv from "./NeuDiv";
-<NeuDiv height={50}/>
+<NeuDiv width={150} height={100}/>
 ```

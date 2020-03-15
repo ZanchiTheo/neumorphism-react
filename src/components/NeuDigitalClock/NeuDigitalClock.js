@@ -2,13 +2,14 @@ import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import theme from '../../theme'
+import { getLightBoxShadow, getDarkBoxShadow } from '../../utils/colors'
 
 const divWidth = 1.8
 const divHeight = 3
 const divRadius = 10
 
-const Digit = ({ digit, radial }) => (
-  <Wrapper width={divWidth} height={divHeight} radius={divRadius}>
+const Digit = ({ digit, radial, color }) => (
+  <Wrapper width={divWidth} height={divHeight} radius={divRadius} color={color}>
     <DigitText radial={radial}>{digit}</DigitText>
     {radial && <Radial />}
   </Wrapper>
@@ -16,13 +17,17 @@ const Digit = ({ digit, radial }) => (
 Digit.propTypes = {
   digit: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   radial: PropTypes.bool,
+  color: PropTypes.string,
 }
 Digit.defaultProps = {
   digit: null,
   radial: false,
+  color: theme.colors.lightGray,
 }
 
-const NeuDigitalClock = ({ width, height, revert }) => {
+const NeuDigitalClock = ({
+  width, height, revert, color,
+}) => {
   const updateDate = () => {
     console.log('hey')
   }
@@ -33,13 +38,13 @@ const NeuDigitalClock = ({ width, height, revert }) => {
   }, [])
 
   return (
-    <Wrapper width={width} height={height} revert={revert}>
+    <Wrapper width={width} height={height} revert={revert} color={color}>
       <DigitsWrapper>
-        <Digit digit={1} />
-        <Digit digit={1} />
-        <Digit digit=":" radial />
-        <Digit digit={1} />
-        <Digit digit={1} />
+        <Digit color={color} digit={1} />
+        <Digit color={color} digit={1} />
+        <Digit color={color} digit=":" radial />
+        <Digit color={color} digit={1} />
+        <Digit color={color} digit={1} />
       </DigitsWrapper>
     </Wrapper>
   )
@@ -48,11 +53,13 @@ NeuDigitalClock.propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
   revert: PropTypes.bool,
+  color: PropTypes.string,
 }
 NeuDigitalClock.defaultProps = {
   width: null,
   height: null,
   revert: false,
+  color: theme.colors.lightGray,
 }
 
 export default NeuDigitalClock
@@ -60,7 +67,9 @@ export default NeuDigitalClock
 const Wrapper = styled.div`
   border-radius: ${(props) => (props.radius ? `${props.radius}px` : '25px')};
   background-color: ${() => theme.colors.lightGray};
-  box-shadow: ${(props) => (props.revert ? 'inset 8px 8px 13px #b4b4b4, inset -8px -8px 13px #e4e4e4' : '8px 8px 13px #b4b4b4, -8px -8px 13px #e4e4e4')};
+  box-shadow: ${(props) => (props.revert
+    ? `${getLightBoxShadow(props.color, 12, theme.intensity, true)}, ${getDarkBoxShadow(props.color, 12, theme.intensity, true)}`
+    : `${getLightBoxShadow(props.color, 12, theme.intensity, false)}, ${getDarkBoxShadow(props.color, 12, theme.intensity, false)}`)};
   margin: auto;
   width: ${(props) => (props.width ? `${props.width}rem` : '100%')};
   height: ${(props) => (props.height ? `${props.height}rem` : '100%')};

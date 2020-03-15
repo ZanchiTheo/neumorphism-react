@@ -2,15 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import theme from '../../theme'
+import { getLightBoxShadow, getDarkBoxShadow } from '../../utils/colors'
 
 const NeuButton = ({
-  children, width, height, buttonClick, gradient, clicked, radius,
+  children, width, height, buttonClick, gradient, clicked, radius, color,
 }) => {
   const ratioBlur = Math.floor(height * 0.7)
   const ratioEpanse = Math.floor(height * 0.35)
 
   return (
-    <ButtonWrapper width={width} height={height} onClick={buttonClick} radius={radius}>
+    <ButtonWrapper width={width} height={height} onClick={buttonClick} radius={radius} color={color}>
       {children}
       {gradient && <Radial clicked={clicked} blur={ratioBlur} expanse={ratioEpanse} />}
     </ButtonWrapper>
@@ -25,6 +26,7 @@ NeuButton.propTypes = {
   clicked: PropTypes.bool,
   radius: PropTypes.number,
   buttonClick: PropTypes.func,
+  color: PropTypes.string,
 }
 NeuButton.defaultProps = {
   children: null,
@@ -34,21 +36,33 @@ NeuButton.defaultProps = {
   clicked: false,
   radius: 25,
   buttonClick: null,
+  color: theme.colors.lightGray,
 }
 
 export default NeuButton
 
 const ButtonWrapper = styled.button`
+  border: none;
   border-radius: ${(props) => props.radius}px;
-  background: ${() => theme.colors.lightGray};
-  box-shadow: 8px 8px 13px #b4b4b4, -8px -8px 13px #e4e4e4, inset 0px 0px 0px #b4b4b4, inset 0px 0px 0px #e4e4e4;
+  background-color: ${(props) => props.color};
+  box-shadow: ${(props) => `${getLightBoxShadow(props.color, 12, theme.intensity, false)}, ${getDarkBoxShadow(props.color, 12, theme.intensity, false)}, ${getLightBoxShadow(props.color, 0, theme.intensity, true)}, ${getDarkBoxShadow(
+    props.color,
+    0,
+    theme.intensity,
+    true
+  )}`};
   margin: auto;
   width: ${(props) => (props.width ? `${props.width}px` : '100%')};
   height: ${(props) => (props.height ? `${props.height}px` : '100%')};
   transition: box-shadow 0.1s ease;
   outline: none;
   &:active {
-    box-shadow: 0px 0px 0px #b4b4b4, 0px 0px 0px #e4e4e4, inset 8px 8px 13px #b4b4b4, inset -8px -8px 13px #e4e4e4;
+    box-shadow: ${(props) => `${getLightBoxShadow(props.color, 0, theme.intensity, false)}, ${getDarkBoxShadow(props.color, 0, theme.intensity, false)}, ${getLightBoxShadow(props.color, 12, theme.intensity, true)}, ${getDarkBoxShadow(
+    props.color,
+    12,
+    theme.intensity,
+    true
+  )}`};
   }
   position: relative;
   font-size: 20px;
