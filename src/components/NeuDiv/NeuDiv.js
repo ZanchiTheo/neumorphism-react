@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import theme from '../../theme'
+import { colorLuminance } from '../../utils/colors'
 
 const NeuDiv = ({
   children, width, height, revert,
@@ -28,7 +29,9 @@ export default NeuDiv
 const DivWrapper = styled.div`
   border-radius: 25px;
   background: ${() => theme.colors.lightGray};
-  box-shadow: ${(props) => (props.revert ? 'inset 8px 8px 13px #b4b4b4, inset -8px -8px 13px #e4e4e4' : '8px 8px 13px #b4b4b4, -8px -8px 13px #e4e4e4')};
+  box-shadow: ${(props) => (props.revert
+    ? `inset 8px 8px 13px ${colorLuminance(theme.colors.lightGray, -0.2)}, inset -8px -8px 13px ${colorLuminance(theme.colors.lightGray, 0.2)}`
+    : `8px 8px 13px ${colorLuminance(theme.colors.lightGray, -0.2)}, -8px -8px 13px ${colorLuminance(theme.colors.lightGray, 0.2)}`)};
   margin: auto;
   width: ${(props) => (props.width ? `${props.width}px` : '100%')};
   height: ${(props) => (props.height ? `${props.height}px` : '100%')};
