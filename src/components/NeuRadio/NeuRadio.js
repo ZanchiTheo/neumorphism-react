@@ -1,40 +1,61 @@
-import React from 'react'
+/* eslint-disable react/no-array-index-key */
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import theme from '../../theme'
 import { getDarkBoxShadow, getLightBoxShadow } from '../../utils/colors'
 
-const NeuRadio = ({ data, color }) => (
-  <Wrapper>
-    {data
-      && data?.length !== 0
-      && data.map((d) => (
-        <RadioBlockWrapper>
-          <Radio color={color}>
-            <RadioInput />
-          </Radio>
-          <RadioText>{d}</RadioText>
-        </RadioBlockWrapper>
-      ))}
-  </Wrapper>
-)
+const NeuRadio = ({ data, color, radio }) => {
+  const [selected, setSelected] = useState(radio ? null : [])
+
+  console.log('selected', selected)
+
+  const handleClick = (d) => {
+    console.log('hey1')
+    if (radio) {
+      console.log('hey2')
+      setSelected(d)
+    } else if (selected?.find(() => d) === d) {
+      setSelected(selected?.filter((f) => d !== f))
+    } else {
+      setSelected(selected?.concat(d))
+    }
+  }
+
+  return (
+    <Wrapper>
+      {data
+        && data?.length !== 0
+        && data.map((d, index) => (
+          <RadioBlockWrapper key={d + index}>
+            <Radio color={color} selected={radio ? d === selected : selected?.find(() => d) === d} onClick={() => handleClick(d)}>
+              <RadioInput id={d} />
+            </Radio>
+            <RadioText htmlFor={d}>{d}</RadioText>
+          </RadioBlockWrapper>
+        ))}
+    </Wrapper>
+  )
+}
 NeuRadio.propTypes = {
   data: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
   color: PropTypes.string,
+  radio: PropTypes.bool,
 }
 NeuRadio.defaultProps = {
   data: null,
   color: theme.colors.lightGray,
+  radio: false,
 }
 
 /** @component */
 export default NeuRadio
 
 const Wrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 1rem;
 `
 
 const RadioBlockWrapper = styled.div`
@@ -42,7 +63,10 @@ const RadioBlockWrapper = styled.div`
   display: flex;
 `
 
-const RadioText = styled.p`
+const RadioText = styled.label`
+  margin: auto;
+  margin-left: 20px;
+  margin-bottom: 2px;
   font-size: ${(props) => `${props.fontSize}px`};
   color: ${() => theme.colors.darkGray};
   outline: none;
@@ -56,20 +80,30 @@ RadioInput.defaultProps = {
   type: 'checkbox',
 }
 
-const Radio = styled.label`
+const Radio = styled.button`
   margin: auto;
+  padding: 0;
   width: 25px;
   height: 25px;
   border: none;
   border-radius: 100%;
   background-color: ${(props) => props.color};
-  box-shadow: ${(props) => `${getLightBoxShadow(props.color, 6, theme.intensity, false)}, ${getDarkBoxShadow(props.color, 6, theme.intensity, false)}`};
-  outline: none;
-  &:active {
-    box-shadow: ${(props) => `${getLightBoxShadow(props.color, 2, theme.intensity, true)}, ${getDarkBoxShadow(props.color, 2, theme.intensity, true)}`};
-  }
+  box-shadow: ${(props) => (props.selected ? `${getLightBoxShadow(props.color, 2, theme.intensity, true)}, ${getDarkBoxShadow(props.color, 2, theme.intensity, true)}` : `${getLightBoxShadow(props.color, 4, theme.intensity, false)}, ${getDarkBoxShadow(props.color, 4, theme.intensity, false)}`)};
   position: relative;
   font-size: 20px;
   color: ${() => theme.colors.darkGray};
   cursor: pointer;
+  &::before {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+    /* transition: all 0.3s ease-in-out; */
+    border-radius: 100%;
+    background: ${(props) => (props.selected ? 'rgba(153, 42, 18, 1)' : theme.colors.darkGray)};
+    box-shadow: ${(props) => (props.selected ? '0px 0px 10px 4px rgba(153,42,18,0.4)' : 'none')};
+  }
 `
