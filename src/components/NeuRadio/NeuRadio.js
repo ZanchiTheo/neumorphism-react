@@ -11,16 +11,16 @@ const NeuRadio = ({ data, color, radio }) => {
   console.log('selected', selected)
 
   const handleClick = (d) => {
-    console.log('hey1')
     if (radio) {
-      console.log('hey2')
-      setSelected(d)
-    } else if (selected?.find(() => d) === d) {
+      setSelected(d === selected ? null : d)
+    } else if (selected?.find((f) => d === f)) {
       setSelected(selected?.filter((f) => d !== f))
     } else {
       setSelected(selected?.concat(d))
     }
   }
+
+  const checkSelected = (d) => (radio ? d === selected : selected?.find((f) => d === f))
 
   return (
     <Wrapper>
@@ -28,7 +28,7 @@ const NeuRadio = ({ data, color, radio }) => {
         && data?.length !== 0
         && data.map((d, index) => (
           <RadioBlockWrapper key={d + index}>
-            <Radio color={color} selected={radio ? d === selected : selected?.find(() => d) === d} onClick={() => handleClick(d)}>
+            <Radio color={color} selected={checkSelected(d)} onClick={() => handleClick(d)}>
               <RadioInput id={d} />
             </Radio>
             <RadioText htmlFor={d}>{d}</RadioText>

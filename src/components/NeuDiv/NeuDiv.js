@@ -5,9 +5,9 @@ import theme from '../../theme'
 import { getDarkBoxShadow, getLightBoxShadow } from '../../utils/colors'
 
 const NeuDiv = ({
-  children, width, height, revert, color,
+  children, width, height, revert, color, radius, distance,
 }) => (
-  <DivWrapper width={width} height={height} revert={revert} color={color}>
+  <DivWrapper width={width} height={height} revert={revert} color={color} radius={radius} distance={distance}>
     {children}
   </DivWrapper>
 )
@@ -15,6 +15,8 @@ NeuDiv.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
   width: PropTypes.number,
   height: PropTypes.number,
+  distance: PropTypes.number,
+  radius: PropTypes.number,
   revert: PropTypes.bool,
   color: PropTypes.string,
 }
@@ -22,6 +24,8 @@ NeuDiv.defaultProps = {
   children: null,
   width: null,
   height: null,
+  distance: theme.distance,
+  radius: 25,
   revert: false,
   color: theme.colors.lightGray,
 }
@@ -30,11 +34,11 @@ NeuDiv.defaultProps = {
 export default NeuDiv
 
 const DivWrapper = styled.div`
-  border-radius: 25px;
+  border-radius: ${(props) => props.radius}px;
   background: ${() => theme.colors.lightGray};
   box-shadow: ${(props) => (props.revert
-    ? `${getLightBoxShadow(props.color, theme.distance, theme.intensity, true)}, ${getDarkBoxShadow(props.color, theme.distance, theme.intensity, true)}`
-    : `${getLightBoxShadow(props.color, theme.distance, theme.intensity, false)}, ${getDarkBoxShadow(props.color, theme.distance, theme.intensity, false)}`)};
+    ? `${getLightBoxShadow(props.color, props.distance, theme.intensity, true)}, ${getDarkBoxShadow(props.color, props.distance, theme.intensity, true)}`
+    : `${getLightBoxShadow(props.color, props.distance, theme.intensity, false)}, ${getDarkBoxShadow(props.color, props.distance, theme.intensity, false)}`)};
   margin: auto;
   width: ${(props) => (props.width ? `${props.width}px` : '100%')};
   height: ${(props) => (props.height ? `${props.height}px` : '100%')};
