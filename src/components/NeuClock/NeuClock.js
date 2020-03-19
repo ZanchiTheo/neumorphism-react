@@ -35,9 +35,15 @@ const NeuClock = ({ donut, color }) => {
 
   const animate = () => {
     const now = new Date()
-    secondsRef.current.style.transform = `rotate(${getSecondsDegree(now.getSeconds(), now.getMilliseconds())}deg)`
-    minutesRef.current.style.transform = `rotate(${getMinutesDegree(now.getMinutes())}deg)`
-    hoursRef.current.style.transform = `rotate(${getHoursDegree(now.getHours(), now.getMinutes())}deg)`
+    if (secondsRef?.current?.style) {
+      secondsRef.current.style.transform = `rotate(${getSecondsDegree(now.getSeconds(), now.getMilliseconds())}deg)`
+    }
+    if (secondsRef?.current?.style) {
+      minutesRef.current.style.transform = `rotate(${getMinutesDegree(now.getMinutes())}deg)`
+    }
+    if (secondsRef?.current?.style) {
+      hoursRef.current.style.transform = `rotate(${getHoursDegree(now.getHours(), now.getMinutes())}deg)`
+    }
     requestAnimationFrame(animate)
   }
 

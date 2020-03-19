@@ -5,9 +5,9 @@ import theme from '../../theme'
 import NeuDiv from '../NeuDiv/NeuDiv'
 
 const NeuProgress = ({ progress, color }) => (
-  <NeuDiv height={60} color={color} radius={10}>
+  <NeuDiv height={45} color={color} radius={10}>
     <ProgressWrapper>
-      <NeuDiv distance={3} height={20} color={color} radius={4} revert>
+      <NeuDiv distance={3} height={15} color={color} radius={4} revert>
         <Progress progress={progress} radius={4} />
       </NeuDiv>
     </ProgressWrapper>
