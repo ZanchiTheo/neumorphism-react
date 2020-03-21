@@ -6,9 +6,9 @@ import NeuDiv from '../NeuDiv/NeuDiv'
 
 const NeuProgress = ({ progress, color }) => (
   <NeuDiv height={45} color={color} radius={10}>
-    <ProgressWrapper>
+    <ProgressWrapper data-testid="neuprogress-wrapper">
       <NeuDiv distance={3} height={15} color={color} radius={4} revert>
-        <Progress progress={progress} radius={4} />
+        <Progress progress={progress > 100 ? 100 : progress} radius={4} data-testid="neuprogress-progress" />
       </NeuDiv>
     </ProgressWrapper>
   </NeuDiv>

@@ -52,8 +52,8 @@ const NeuClock = ({ donut, color }) => {
   }, [])
 
   return (
-    <Clock size={size} color={color}>
-      <InnerClock size={innerClockWidth} donut={donut} color={color}>
+    <Clock size={size} color={color} data-testid="neuclock-clock">
+      <InnerClock size={innerClockWidth} donut={donut} color={color} data-testid="neuclock-innerclock">
         {tirets.map((tiret) => (
           <TiretPos key={tiret.hour} x={getX(tiret.teta)} y={getY(tiret.teta)} teta={tiret.teta}>
             <Tiret />
@@ -88,7 +88,7 @@ const Clock = styled.div`
   display: flex;
   width: ${(props) => `${props.size}px`};
   height: ${(props) => `${props.size}px`};
-  background-color: ${() => theme.colors.lightGray};
+  background-color: ${(props) => props.color};
   /* background: linear-gradient(145deg, #b8b8b8, #b8b8b8 20%, #dadada); */
   box-shadow: ${(props) => `${getLightBoxShadow(props.color, theme.distance, theme.intensity, false)}, ${getDarkBoxShadow(props.color, theme.distance, theme.intensity, false)}`};
 `
@@ -96,7 +96,7 @@ const Clock = styled.div`
 const InnerClock = styled.div`
   width: ${(props) => `${props.size}px`};
   height: ${(props) => `${props.size}px`};
-  border: ${(props) => (props.donut ? '16px solid #cbcbcb' : 'none')};
+  border: ${(props) => (props.donut ? `16px solid ${props.color}` : 'none')};
   box-shadow: ${(props) => (props.donut ? `${getLightBoxShadow(props.color, theme.distance, theme.intensity, true)}, ${getDarkBoxShadow(props.color, theme.distance, theme.intensity, true)}` : 'none')};
   margin: auto;
   position: relative;

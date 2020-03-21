@@ -5,30 +5,35 @@ import styled from '@emotion/styled'
 import theme from '../../theme'
 import { getDarkBoxShadow, getLightBoxShadow } from '../../utils/colors'
 
-const NeuRadio = ({ data, color, radio }) => {
+const NeuRadio = ({
+  data, color, radio, onChange,
+}) => {
   const [selected, setSelected] = useState(radio ? null : [])
 
-  console.log('selected', selected)
-
   const handleClick = (d) => {
+    let selectedSnapshot = selected
     if (radio) {
-      setSelected(d === selected ? null : d)
+      selectedSnapshot = d === selected ? null : d
     } else if (selected?.find((f) => d === f)) {
-      setSelected(selected?.filter((f) => d !== f))
+      selectedSnapshot = selected?.filter((f) => d !== f)
     } else {
-      setSelected(selected?.concat(d))
+      selectedSnapshot = selected?.concat(d)
+    }
+    setSelected(selectedSnapshot)
+    if (onChange) {
+      onChange(selectedSnapshot)
     }
   }
 
   const checkSelected = (d) => (radio ? d === selected : selected?.find((f) => d === f))
 
   return (
-    <Wrapper>
+    <Wrapper data-testid="neuradio-wrapper">
       {data
         && data?.length !== 0
         && data.map((d, index) => (
           <RadioBlockWrapper key={d + index}>
-            <Radio color={color} selected={checkSelected(d)} onClick={() => handleClick(d)}>
+            <Radio data-testid={`neuradio-radio-${d}`} color={color} selected={checkSelected(d)} onClick={() => handleClick(d)}>
               <RadioInput id={d} />
             </Radio>
             <RadioText htmlFor={d}>{d}</RadioText>
@@ -41,11 +46,13 @@ NeuRadio.propTypes = {
   data: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
   color: PropTypes.string,
   radio: PropTypes.bool,
+  onChange: PropTypes.func,
 }
 NeuRadio.defaultProps = {
   data: null,
   color: theme.colors.lightGray,
   radio: false,
+  onChange: null,
 }
 
 /** @component */

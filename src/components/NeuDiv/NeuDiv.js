@@ -5,9 +5,9 @@ import theme from '../../theme'
 import { getDarkBoxShadow, getLightBoxShadow } from '../../utils/colors'
 
 const NeuDiv = ({
-  children, width, height, revert, color, radius, distance,
+  children, width, height, revert, color, radius, distance, column,
 }) => (
-  <DivWrapper width={width} height={height} revert={revert} color={color} radius={radius} distance={distance}>
+  <DivWrapper data-testid="neudiv-wrapper" width={width} height={height} revert={revert} color={color} radius={radius} distance={distance} column={column}>
     {children}
   </DivWrapper>
 )
@@ -18,6 +18,7 @@ NeuDiv.propTypes = {
   distance: PropTypes.number,
   radius: PropTypes.number,
   revert: PropTypes.bool,
+  column: PropTypes.bool,
   color: PropTypes.string,
 }
 NeuDiv.defaultProps = {
@@ -27,6 +28,7 @@ NeuDiv.defaultProps = {
   distance: theme.distance,
   radius: 25,
   revert: false,
+  column: false,
   color: theme.colors.lightGray,
 }
 

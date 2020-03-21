@@ -23,7 +23,7 @@ const NeuSlider = ({
 
   return (
     <NeuDiv height={45} color={color} radius={10}>
-      <Slider min={min} max={max} value={value} color={color} onChange={(event) => handleChange(event)} percentage={getPercentageDecimal(value, max)} />
+      <Slider data-testid="neuslider-slider" min={min} max={max} value={value} color={color} onChange={(event) => handleChange(event)} percentage={getPercentageDecimal(value, max)} />
     </NeuDiv>
   )
 }

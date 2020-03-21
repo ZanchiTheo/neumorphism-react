@@ -6,7 +6,7 @@ import theme from '../../theme'
 const Layout = ({
   height, color, children, column,
 }) => (
-  <LayoutWrapper height={height} color={color} column={column}>
+  <LayoutWrapper data-testid="layout-wrapper" height={height} color={color} column={column}>
     {children}
   </LayoutWrapper>
 )
