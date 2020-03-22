@@ -6,6 +6,9 @@
   "main": "lib/index.js",
   "browser": "lib/index.umd.js",
   "module": "lib/index.es.js",
+  "files": [
+    "/lib"
+  ],
   "scripts": {
     "start": "styleguidist server",
     "pretest": "./node_modules/.bin/eslint . --fix",
