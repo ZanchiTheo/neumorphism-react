@@ -3,6 +3,12 @@
   "version": "1.0.1",
   "description": "Neumorphism component library for React",
   "author": "Theo Zanchi",
+  "keywords": [
+    "neumorphism",
+    "react",
+    "components",
+    "library"
+  ],
   "main": "lib/index.js",
   "browser": "lib/index.umd.js",
   "module": "lib/index.es.js",
@@ -21,7 +27,6 @@
     "postbuild": "yarn pack && tar -xvzf *.tgz && rm -rf package *.tgz",
     "docs:build": "styleguidist build"
   },
-  "keywords": [],
   "license": "ISC",
   "private": false,
   "dependencies": {
