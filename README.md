@@ -25,11 +25,11 @@ yarn add @emotion/core @emotion/styled
 To install the Neumorphism React package, run the following command:
 
 ```shell
-npm install --save react-neucomponents
+npm install --save neumorphism-react
 
 or
 
-yarn add react-neucomponents
+yarn add neumorphism-react
 ```
 
 ## Contributing ##
