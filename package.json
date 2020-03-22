@@ -1,21 +1,27 @@
 {
-  "name": "react-neumorphism",
+  "name": "react-neucomponents",
   "version": "0.0.1",
   "description": "Neumorphism component library for React",
   "author": "Theo Zanchi",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "browser": "lib/index.umd.js",
+  "module": "lib/index.es.js",
   "scripts": {
     "start": "styleguidist server",
     "pretest": "./node_modules/.bin/eslint . --fix",
     "eslint": "eslint '**/*.{js,jsx}'",
     "lint": "prettier-eslint --write",
     "lint-check": "prettier-eslint",
-    "test": "jest"
+    "test": "jest",
+    "build": "rollup -c",
+    "prepublishOnly": "rm -rf lib && npm run build",
+    "postbuild": "yarn pack && tar -xvzf *.tgz && rm -rf package *.tgz"
   },
   "keywords": [],
   "license": "ISC",
   "private": false,
   "dependencies": {
+    "global": "^4.4.0",
     "prop-types": "^15.7.2"
   },
   "peerDependencies": {
@@ -55,6 +61,13 @@
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-styleguidist": "^11.0.1",
+    "rollup": "^2.1.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.2",
+    "rollup-plugin-terser": "^5.3.0",
+    "rollup-plugin-uglify": "^6.0.4",
     "webpack": "^4.42.0"
   },
   "husky": {

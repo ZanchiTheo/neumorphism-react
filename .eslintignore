@@ -1,2 +1,4 @@
+lib/
 .babelrc
 styleguide.config.js
+rollup.config.js
