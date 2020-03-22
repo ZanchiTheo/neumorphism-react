@@ -1,6 +1,6 @@
-# React Neu Components #
+# Neumorphism React #
 
-React Neu Components is a React neumorphism components library designed to provide ready to use components following the neumorphism UI/UX trend.
+Neumorphism React is a React neumorphism components library designed to provide ready to use components following the neumorphism UI/UX trend.
 
 ## Documentation ##
 
@@ -10,7 +10,7 @@ You will find the full documentation and examples of the component library [here
 
 ### Dependencies ###
 
-React Neu Components requires the installation of the `@emotion/core` and `@emotion/styled` packages:
+Neumorphism React requires the installation of the `@emotion/core` and `@emotion/styled` packages:
 
 ```shell
 npm install --save @emotion/core @emotion/styled
@@ -22,7 +22,7 @@ yarn add @emotion/core @emotion/styled
 
 ### Package installation ###
 
-To install the React Neu Components package, run the following command:
+To install the Neumorphism React package, run the following command:
 
 ```shell
 npm install --save react-neucomponents
