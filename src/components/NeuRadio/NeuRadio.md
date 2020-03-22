@@ -1,7 +1,7 @@
 ### Displays checkboxes ###
 
 ```jsx { "props": { "style": { "backgroundColor": "#929292", "textAlign": "center" } } }
-import { NeuRadio } from "react-neucomponents";
+import { NeuRadio } from "neumorphism-react";
 
 <NeuRadio data={[1, 2, 3, 4, 5]} onChange={(value) => console.log("new value : ", value)} />
 ```
@@ -9,7 +9,7 @@ import { NeuRadio } from "react-neucomponents";
 ### Displays radio choice ###
 
 ```jsx { "props": { "style": { "backgroundColor": "#929292", "textAlign": "center" } } }
-import { NeuRadio } from "react-neucomponents";
+import { NeuRadio } from "neumorphism-react";
 
 <NeuRadio data={[1, 2, 3, 4, 5]} onChange={(value) => console.log("new value : ", value)} radio />
 ```

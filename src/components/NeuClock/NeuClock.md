@@ -1,7 +1,7 @@
 ### Displays a basic clock ###
 
 ```jsx { "props": { "style": { "backgroundColor": "#929292", "textAlign": "center" } } }
-import { NeuClock } from "react-neucomponents";
+import { NeuClock } from "neumorphism-react";
 
 <>
   <NeuClock />

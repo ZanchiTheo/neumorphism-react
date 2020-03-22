@@ -1,7 +1,7 @@
 ### Displays a basic text input ###
 
 ```jsx { "props": { "style": { "backgroundColor": "#929292", "textAlign": "center" } } }
-import { NeuTextInput } from "react-neucomponents";
+import { NeuTextInput } from "neumorphism-react";
 
 <NeuTextInput />
 ```

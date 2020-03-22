@@ -1,7 +1,7 @@
 ### Displays a progress bar ###
 
 ```jsx { "props": { "style": { "backgroundColor": "#929292", "textAlign": "center" } } }
-import { NeuProgress } from "react-neucomponents";
+import { NeuProgress } from "neumorphism-react";
 <>
   <NeuProgress progress={0} />
   <br /><br />

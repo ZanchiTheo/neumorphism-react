@@ -1,7 +1,7 @@
 ### Displays a basic button ###
 
 ```jsx { "props": { "style": { "backgroundColor": "#929292", "textAlign": "center" } } }
-import { NeuButton } from "react-neucomponents";
+import { NeuButton } from "neumorphism-react";
 
 <NeuButton
   width={150}

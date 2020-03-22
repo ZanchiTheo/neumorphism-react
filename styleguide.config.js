@@ -15,6 +15,6 @@ module.exports = {
   title: "React Neumorphism Components Library",
   styleguideDir: "dist-docs",
   moduleAliases: {
-    "react-neucomponents": path.resolve(__dirname, "src")
+    "neumorphism-react": path.resolve(__dirname, "src")
   }
 }
