@@ -11,11 +11,11 @@
   ],
   "scripts": {
     "start": "styleguidist server",
-    "pretest": "./node_modules/.bin/eslint . --fix",
     "eslint": "eslint '**/*.{js,jsx}'",
     "lint": "prettier-eslint --write",
     "lint-check": "prettier-eslint",
     "test": "jest",
+    "prelint": "./node_modules/.bin/eslint . --fix",
     "build": "rollup -c",
     "prepublishOnly": "rm -rf lib && npm run build",
     "postbuild": "yarn pack && tar -xvzf *.tgz && rm -rf package *.tgz",
