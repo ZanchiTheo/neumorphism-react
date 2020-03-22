@@ -1,6 +1,6 @@
 {
   "name": "react-neucomponents",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Neumorphism component library for React",
   "author": "Theo Zanchi",
   "main": "lib/index.js",
