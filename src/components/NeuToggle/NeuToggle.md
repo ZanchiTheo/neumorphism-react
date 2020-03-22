@@ -1,8 +1,11 @@
-```jsx
-import NeuToggle from "./NeuToggle";
-import Layout from "../styleguide/Layout";
-<Layout height={300}>
+### Displays a basic toogle button ###
+
+```jsx { "props": { "style": { "backgroundColor": "#929292", "textAlign": "center" } } }
+import { NeuSlider } from "react-neucomponents";
+
+<>
   <NeuToggle size="small" />
+  <br /><br />
   <NeuToggle size="medium" />
-</Layout>
+</>
 ```

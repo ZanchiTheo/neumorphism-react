@@ -33,23 +33,33 @@ const sizes = {
   },
 }
 
-const NeuToggle = ({ size, color }) => {
+const NeuToggle = ({ size, color, onChange }) => {
   const [toggle, setToggle] = useState(false)
   const { divWidth, divHeight, divRadius } = sizes[size] || {}
 
+  const handleClick = () => {
+    const newValue = !toggle
+    setToggle(newValue)
+    if (onChange) {
+      onChange(newValue)
+    }
+  }
+
   return (
     <ToggleWrapper data-testid="neutoggle-wrapper" width={divWidth} height={divHeight} radius={divRadius} color={color}>
-      <Toggle data-testid="neutoggle-toggle" size={sizes[size]} toggle={toggle} onClick={() => setToggle(!toggle)} color={color} />
+      <Toggle data-testid="neutoggle-toggle" size={sizes[size]} toggle={toggle} onClick={handleClick} color={color} />
     </ToggleWrapper>
   )
 }
 NeuToggle.propTypes = {
   size: PropTypes.oneOf(['big', 'medium', 'small']),
   color: PropTypes.string,
+  onChange: PropTypes.func,
 }
 NeuToggle.defaultProps = {
   size: 'small',
   color: theme.colors.lightGray,
+  onChange: null,
 }
 
 /** @component */

@@ -1,7 +1,7 @@
-```jsx
-import NeuTextInput from "./NeuTextInput";
-import Layout from "../styleguide/Layout";
-<Layout height={300}>
-  <NeuTextInput />
-</Layout>
+### Displays a basic text input ###
+
+```jsx { "props": { "style": { "backgroundColor": "#929292", "textAlign": "center" } } }
+import { NeuTextInput } from "react-neucomponents";
+
+<NeuTextInput />
 ```

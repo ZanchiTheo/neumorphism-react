@@ -88,6 +88,7 @@ RadioInput.defaultProps = {
 }
 
 const Radio = styled.button`
+  outline: none;
   margin: auto;
   padding: 0;
   width: 25px;

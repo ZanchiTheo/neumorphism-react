@@ -1,8 +1,15 @@
-```jsx
-import NeuRadio from "./NeuRadio";
-import Layout from "../styleguide/Layout";
-<Layout height={500}>
-  <NeuRadio data={[1, 2, 3, 4, 5]} />
-  <NeuRadio data={[1, 2, 3, 4, 5]} radio />
-</Layout>
+### Displays checkboxes ###
+
+```jsx { "props": { "style": { "backgroundColor": "#929292", "textAlign": "center" } } }
+import { NeuRadio } from "react-neucomponents";
+
+<NeuRadio data={[1, 2, 3, 4, 5]} onChange={(value) => console.log("new value : ", value)} />
+```
+
+### Displays radio choice ###
+
+```jsx { "props": { "style": { "backgroundColor": "#929292", "textAlign": "center" } } }
+import { NeuRadio } from "react-neucomponents";
+
+<NeuRadio data={[1, 2, 3, 4, 5]} onChange={(value) => console.log("new value : ", value)} radio />
 ```

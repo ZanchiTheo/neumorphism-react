@@ -1,10 +1,13 @@
-```jsx
-import NeuButton from "./NeuButton";
-import Layout from "../styleguide/Layout";
-<Layout height={300}>
-  <NeuButton width={150} height={100}>
-    Simple button
-  </NeuButton>
-  <NeuButton width={150} height={100} />
-</Layout>
+### Displays a basic button ###
+
+```jsx { "props": { "style": { "backgroundColor": "#929292", "textAlign": "center" } } }
+import { NeuButton } from "react-neucomponents";
+
+<NeuButton
+  width={150}
+  height={100}
+  onClick={() => console.log("Button cliked !")}
+>
+  Click me !
+</NeuButton>
 ```

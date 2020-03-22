@@ -1,10 +1,14 @@
-```jsx
-import NeuProgress from "./NeuProgress";
-import Layout from "../styleguide/Layout";
-<Layout height={500} column>
+### Displays a progress bar ###
+
+```jsx { "props": { "style": { "backgroundColor": "#929292", "textAlign": "center" } } }
+import { NeuProgress } from "react-neucomponents";
+<>
   <NeuProgress progress={0} />
+  <br /><br />
   <NeuProgress progress={15} />
+  <br /><br />
   <NeuProgress progress={50} />
+  <br /><br />
   <NeuProgress progress={90} />
-</Layout>
+</>
 ```

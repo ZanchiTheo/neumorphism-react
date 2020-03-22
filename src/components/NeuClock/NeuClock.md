@@ -1,8 +1,11 @@
-```jsx
-import NeuClock from "./NeuClock";
-import Layout from "../styleguide/Layout";
-<Layout height={600} column>
+### Displays a basic clock ###
+
+```jsx { "props": { "style": { "backgroundColor": "#929292", "textAlign": "center" } } }
+import { NeuClock } from "react-neucomponents";
+
+<>
   <NeuClock />
+  <br /><br />
   <NeuClock donut />
-</Layout>
+</>
 ```

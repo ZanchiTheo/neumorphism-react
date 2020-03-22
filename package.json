@@ -18,7 +18,8 @@
     "test": "jest",
     "build": "rollup -c",
     "prepublishOnly": "rm -rf lib && npm run build",
-    "postbuild": "yarn pack && tar -xvzf *.tgz && rm -rf package *.tgz"
+    "postbuild": "yarn pack && tar -xvzf *.tgz && rm -rf package *.tgz",
+    "docs:build": "styleguidist build"
   },
   "keywords": [],
   "license": "ISC",

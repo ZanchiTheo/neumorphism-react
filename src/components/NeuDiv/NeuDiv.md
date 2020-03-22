@@ -1,8 +1,15 @@
-```jsx
-import NeuDiv from "./NeuDiv";
-import Layout from "../styleguide/Layout";
-<Layout height={300}>
-  <NeuDiv width={150} height={100}/>
-  <NeuDiv width={150} height={100} revert/>
-</Layout>
+### Displays a basic div ###
+
+```jsx { "props": { "style": { "backgroundColor": "#929292", "textAlign": "center" } } }
+import { NeuDiv } from "react-neucomponents";
+  
+<NeuDiv width={150} height={100} />
+```
+
+### Displays a reverted div ###
+
+```jsx { "props": { "style": { "backgroundColor": "#929292", "textAlign": "center" } } }
+import { NeuDiv } from "react-neucomponents";
+  
+<NeuDiv width={150} height={100} revert />
 ```
