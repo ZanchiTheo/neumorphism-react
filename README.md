@@ -6,6 +6,8 @@ Neumorphism React is a React neumorphism components library designed to provide 
 
 You will find the full documentation and examples of the component library [here](https://zanchitheo.github.io/react-neucomponents/)
 
+The library is available on [npm](https://www.npmjs.com/package/neumorphism-react)
+
 ## Library installation ##
 
 ### Dependencies ###

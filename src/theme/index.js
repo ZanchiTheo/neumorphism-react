@@ -1,5 +1,5 @@
 const theme = {
-  intensity: 20,
+  intensity: 18,
   distance: 5,
   colors: {
     lightGray: '#929292',

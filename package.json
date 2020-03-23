@@ -1,14 +1,23 @@
 {
   "name": "neumorphism-react",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "description": "Neumorphism component library for React",
   "author": "Theo Zanchi",
   "keywords": [
     "neumorphism",
     "react",
+    "react-components",
     "components",
-    "library"
+    "library",
+    "components-library",
+    "neumorphic-ui",
+    "neumorphism-ui",
+    "styled-components"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZanchiTheo/neumorphism-react.git"
+  },
   "main": "lib/index.js",
   "browser": "lib/index.umd.js",
   "module": "lib/index.es.js",

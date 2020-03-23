@@ -1,6 +1,6 @@
 ### Displays a progress bar ###
 
-```jsx { "props": { "style": { "backgroundColor": "#929292", "textAlign": "center" } } }
+```jsx { "props": { "style": { "backgroundColor": "#929292", "textAlign": "center", "padding": "100px" } } }
 import { NeuProgress } from "react-neucomponents";
 <>
   <NeuProgress progress={0} />

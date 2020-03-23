@@ -1,6 +1,6 @@
 ### Displays a basic toogle button ###
 
-```jsx { "props": { "style": { "backgroundColor": "#929292", "textAlign": "center" } } }
+```jsx { "props": { "style": { "backgroundColor": "#929292", "textAlign": "center", "padding": "100px" } } }
 import { NeuSlider } from "react-neucomponents";
 
 <>

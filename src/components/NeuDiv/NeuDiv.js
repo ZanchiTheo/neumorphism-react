@@ -37,7 +37,7 @@ export default NeuDiv
 
 const DivWrapper = styled.div`
   border-radius: ${(props) => props.radius}px;
-  background: ${() => theme.colors.lightGray};
+  background: ${(props) => props.color};
   box-shadow: ${(props) => (props.revert
     ? `${getLightBoxShadow(props.color, props.distance, theme.intensity, true)}, ${getDarkBoxShadow(props.color, props.distance, theme.intensity, true)}`
     : `${getLightBoxShadow(props.color, props.distance, theme.intensity, false)}, ${getDarkBoxShadow(props.color, props.distance, theme.intensity, false)}`)};
