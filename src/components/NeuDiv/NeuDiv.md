@@ -8,7 +8,7 @@ Like any component of this lib, you are free to choose the color you want, just 
 
 !!! The colors handled are currently only RGB hexadecimal colors like: #929292 !!!
 
-```jsx { "props": { "style": { "backgroundColor": "#5f3d27", "textAlign": "center", "padding": "100px" } } }
+```jsx { "props": { "style": { "backgroundColor": "#5f3d27", "textAlign": "center", "padding": "60px 20px" } } }
 import { NeuDiv } from "react-neucomponents";
 
 <>
@@ -22,7 +22,7 @@ import { NeuDiv } from "react-neucomponents";
 
 You can play with the distance prop to control the elevation of the NeuDiv component. Base value is 5.
 
-```jsx { "props": { "style": { "backgroundColor": "#477854", "textAlign": "center", "padding": "100px" } } }
+```jsx { "props": { "style": { "backgroundColor": "#477854", "textAlign": "center", "padding": "60px 20px" } } }
 import { NeuDiv } from "react-neucomponents";
   
 <>
@@ -40,7 +40,7 @@ import { NeuDiv } from "react-neucomponents";
 
 You can specify the border radius you want to apply to the NeuDiv component in px. Base value is 25.
 
-```jsx { "props": { "style": { "backgroundColor": "#c5c5c5", "textAlign": "center", "padding": "100px" } } }
+```jsx { "props": { "style": { "backgroundColor": "#c5c5c5", "textAlign": "center", "padding": "60px 20px" } } }
 import { NeuDiv } from "react-neucomponents";
   
 <>
@@ -54,7 +54,7 @@ import { NeuDiv } from "react-neucomponents";
 
 Last but not least, you can choose the width and height of your NeuDiv in px. The base value for width and height is 100% of the parent container. 
 
-```jsx { "props": { "style": { "backgroundColor": "#929292", "textAlign": "center", "padding": "100px" } } }
+```jsx { "props": { "style": { "backgroundColor": "#929292", "textAlign": "center", "padding": "60px 20px" } } }
 import { NeuDiv } from "react-neucomponents";
   
 <>
