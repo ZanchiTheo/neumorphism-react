@@ -1,22 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import theme from '../../theme'
 import { getLightBoxShadow, getDarkBoxShadow } from '../../utils/colors'
 
 const NeuTextInput = ({
-  width, height, fontSize, placeholder, color,
-}) => (
-  <InputWrapper width={width} height={height} data-testid="neutextinput-wrapper">
-    <Input data-testid="neutextinput-input" fontSize={fontSize} placeholder={placeholder} color={color} />
-  </InputWrapper>
-)
+  width, height, fontSize, placeholder, color, onChange,
+}) => {
+  const [value, setValue] = useState('')
+
+  const handleChange = (event) => {
+    const newValue = event?.target?.value
+    setValue(newValue)
+    if (onChange) {
+      onChange(newValue === '' ? null : newValue)
+    }
+  }
+
+  return (
+    <InputWrapper width={width} height={height} data-testid="neutextinput-wrapper">
+      <Input data-testid="neutextinput-input" fontSize={fontSize} placeholder={placeholder} color={color} value={value} onChange={(event) => handleChange(event)} />
+    </InputWrapper>
+  )
+}
 NeuTextInput.propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
   fontSize: PropTypes.number,
   placeholder: PropTypes.string,
   color: PropTypes.string,
+  onChange: PropTypes.func,
 }
 NeuTextInput.defaultProps = {
   width: null,
@@ -24,6 +37,7 @@ NeuTextInput.defaultProps = {
   fontSize: 20,
   placeholder: 'Placeholder',
   color: theme.colors.lightGray,
+  onChange: null,
 }
 
 /** @component */

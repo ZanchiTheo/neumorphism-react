@@ -9,7 +9,7 @@ Like any component of this lib, you are free to choose the color you want, just 
 !!! The colors handled are currently only RGB hexadecimal colors like: #929292 !!!
 
 ```jsx { "props": { "style": { "backgroundColor": "#5f3d27", "textAlign": "center", "padding": "60px 30px" } } }
-import { NeuButton } from "react-neucomponents";
+import { NeuButton } from "neumorphism-react";
 
 <NeuButton
   width={150}
@@ -24,7 +24,7 @@ import { NeuButton } from "react-neucomponents";
 The NeuButton can act as a wrapper for any component you want !
 
 ```jsx { "props": { "style": { "backgroundColor": "#477854", "textAlign": "center", "padding": "60px 30px" } } }
-import { NeuButton } from "react-neucomponents"; 
+import { NeuButton } from "neumorphism-react"; 
 
 <>
   <NeuButton
@@ -52,7 +52,7 @@ import { NeuButton } from "react-neucomponents";
 You can specify the border radius you want to apply to the NeuButton component in px. Base value is 25.
 
 ```jsx { "props": { "style": { "backgroundColor": "#c5c5c5", "textAlign": "center", "padding": "60px 30px" } } }
-import { NeuButton } from "react-neucomponents";
+import { NeuButton } from "neumorphism-react";
 
 <NeuButton
   width={150}
@@ -70,7 +70,7 @@ import { NeuButton } from "react-neucomponents";
 Last but not least, you can choose the width and height of your NeuButton in px. The base value for width and height is 100% of the parent container. 
 
 ```jsx { "props": { "style": { "backgroundColor": "#929292", "textAlign": "center", "padding": "60px 30px" } } }
-import { NeuButton } from "react-neucomponents";
+import { NeuButton } from "neumorphism-react";
 
 <NeuButton
   height={70}
@@ -86,7 +86,7 @@ import { NeuButton } from "react-neucomponents";
 You can play with the distance prop to control the elevation of the NeuButton component. Base value is 5.
 
 ```jsx { "props": { "style": { "backgroundColor": "#8d3c37", "textAlign": "center", "padding": "60px 20px" } } }
-import { NeuButton } from "react-neucomponents";
+import { NeuButton } from "neumorphism-react";
   
 <>
   <NeuButton

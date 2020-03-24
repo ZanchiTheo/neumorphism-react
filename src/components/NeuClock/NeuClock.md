@@ -7,7 +7,7 @@ Like any component of this lib, you are free to choose the color you want, just 
 !!! The colors handled are currently only RGB hexadecimal colors like: #929292 !!!
 
 ```jsx { "props": { "style": { "backgroundColor": "#6a8d88", "textAlign": "center", "padding": "60px 20px" } } }
-import { NeuClock } from "react-neucomponents";
+import { NeuClock } from "neumorphism-react";
   
 <NeuClock color="#6a8d88" />
 ```
@@ -17,7 +17,7 @@ import { NeuClock } from "react-neucomponents";
 You can also add a prop called donut to the clock to have a donut styled clock.
 
 ```jsx { "props": { "style": { "backgroundColor": "#929292", "textAlign": "center", "padding": "60px 20px" } } }
-import { NeuClock } from "react-neucomponents";
+import { NeuClock } from "neumorphism-react";
   
 <NeuClock donut />
 ```

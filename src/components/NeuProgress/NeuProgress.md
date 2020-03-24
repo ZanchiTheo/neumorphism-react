@@ -7,19 +7,19 @@ Like any component of this lib, you are free to choose the color you want, just 
 !!! The colors handled are currently only RGB hexadecimal colors like: #929292 !!!
 
 ```jsx { "props": { "style": { "backgroundColor": "#6a8d88", "textAlign": "center", "padding": "60px 20px" } } }
-import { NeuProgress } from "react-neucomponents";
+import { NeuProgress } from "neumorphism-react";
   
 <NeuProgress progress={15} color="#6a8d88" />
 ```
 
 ```jsx { "props": { "style": { "backgroundColor": "#929292", "textAlign": "center", "padding": "60px 20px" } } }
-import { NeuProgress } from "react-neucomponents";
+import { NeuProgress } from "neumorphism-react";
   
 <NeuProgress progress={50} />
 ```
 
 ```jsx { "props": { "style": { "backgroundColor": "#5f3d27", "textAlign": "center", "padding": "60px 20px" } } }
-import { NeuProgress } from "react-neucomponents";
+import { NeuProgress } from "neumorphism-react";
   
 <NeuProgress progress={90} color="5f3d27" />
 ```
