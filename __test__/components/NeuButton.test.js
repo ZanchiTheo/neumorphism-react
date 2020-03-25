@@ -2,6 +2,8 @@ import React from 'react'
 import { render, fireEvent } from '@testing-library/react'
 import { matchers } from 'jest-emotion'
 import NeuButton from '../../src/components/NeuButton/NeuButton'
+import { getLightBoxShadow, getDarkBoxShadow } from '../../src/utils/colors'
+import theme from '../../src/theme'
 
 // Add the custom matchers provided by 'jest-emotion'
 expect.extend(matchers)
@@ -16,7 +18,15 @@ describe('NeuButton', () => {
     expect(queryByTestId('neubutton-wrapper')).toHaveStyleRule('height', '100%')
     // Use the default border-radius which is 25px
     expect(queryByTestId('neubutton-wrapper')).toHaveStyleRule('border-radius', '25px')
-    expect(queryByTestId('neubutton-wrapper')).toHaveStyleRule('box-shadow', '5px 5px 10px #757575,-5px -5px 10px #afafaf,inset 0px 0px 0px #757575,inset -0px -0px 0px #afafaf')
+    expect(queryByTestId('neubutton-wrapper')).toHaveStyleRule(
+      'box-shadow',
+      `${getLightBoxShadow(theme.colors.lightGray, theme.distance, theme.intensity, false)},${getDarkBoxShadow(theme.colors.lightGray, theme.distance, theme.intensity, false)},${getLightBoxShadow(theme.colors.lightGray, 0, theme.intensity, true)},${getDarkBoxShadow(
+        theme.colors.lightGray,
+        0,
+        theme.intensity,
+        true
+      )}`
+    )
   })
 
   it('Fires a function on click', async () => {
@@ -29,7 +39,15 @@ describe('NeuButton', () => {
     expect(queryByTestId('neubutton-wrapper')).toHaveStyleRule('width', '10px')
     expect(queryByTestId('neubutton-wrapper')).toHaveStyleRule('height', '10px')
     expect(queryByTestId('neubutton-wrapper')).toHaveStyleRule('border-radius', '10px')
-    expect(queryByTestId('neubutton-wrapper')).toHaveStyleRule('box-shadow', '5px 5px 10px #757575,-5px -5px 10px #afafaf,inset 0px 0px 0px #757575,inset -0px -0px 0px #afafaf')
+    expect(queryByTestId('neubutton-wrapper')).toHaveStyleRule(
+      'box-shadow',
+      `${getLightBoxShadow(theme.colors.lightGray, theme.distance, theme.intensity, false)},${getDarkBoxShadow(theme.colors.lightGray, theme.distance, theme.intensity, false)},${getLightBoxShadow(theme.colors.lightGray, 0, theme.intensity, true)},${getDarkBoxShadow(
+        theme.colors.lightGray,
+        0,
+        theme.intensity,
+        true
+      )}`
+    )
 
     fireEvent.click(queryByTestId('neubutton-wrapper'))
 

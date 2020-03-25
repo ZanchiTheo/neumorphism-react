@@ -19,7 +19,7 @@ const tirets = [
   { hour: 12, teta: 360 },
 ]
 
-const NeuClock = ({ donut, color }) => {
+const NeuClock = ({ donut, color, distance }) => {
   const size = 260
   const innerWidth = size - 20
   const innerClockWidth = 195
@@ -52,8 +52,8 @@ const NeuClock = ({ donut, color }) => {
   }, [])
 
   return (
-    <Clock size={size} color={color} data-testid="neuclock-clock">
-      <InnerClock size={innerClockWidth} donut={donut} color={color} data-testid="neuclock-innerclock">
+    <Clock size={size} color={color} distance={distance} data-testid="neuclock-clock">
+      <InnerClock size={innerClockWidth} donut={donut} color={color} distance={distance} data-testid="neuclock-innerclock">
         {tirets.map((tiret) => (
           <TiretPos key={tiret.hour} x={getX(tiret.teta)} y={getY(tiret.teta)} teta={tiret.teta}>
             <Tiret />
@@ -73,10 +73,12 @@ const NeuClock = ({ donut, color }) => {
 NeuClock.propTypes = {
   donut: PropTypes.bool,
   color: PropTypes.string,
+  distance: PropTypes.number,
 }
 NeuClock.defaultProps = {
   donut: false,
   color: theme.colors.lightGray,
+  distance: theme.distance,
 }
 
 /** @component */
@@ -90,14 +92,14 @@ const Clock = styled.div`
   height: ${(props) => `${props.size}px`};
   background-color: ${(props) => props.color};
   /* background: linear-gradient(145deg, #b8b8b8, #b8b8b8 20%, #dadada); */
-  box-shadow: ${(props) => `${getLightBoxShadow(props.color, theme.distance, theme.intensity, false)}, ${getDarkBoxShadow(props.color, theme.distance, theme.intensity, false)}`};
+  box-shadow: ${(props) => `${getLightBoxShadow(props.color, props.distance, theme.intensity, false)}, ${getDarkBoxShadow(props.color, props.distance, theme.intensity, false)}`};
 `
 
 const InnerClock = styled.div`
   width: ${(props) => `${props.size}px`};
   height: ${(props) => `${props.size}px`};
   border: ${(props) => (props.donut ? `16px solid ${props.color}` : 'none')};
-  box-shadow: ${(props) => (props.donut ? `${getLightBoxShadow(props.color, theme.distance, theme.intensity, true)}, ${getDarkBoxShadow(props.color, theme.distance, theme.intensity, true)}` : 'none')};
+  box-shadow: ${(props) => (props.donut ? `${getLightBoxShadow(props.color, props.distance, theme.intensity, true)}, ${getDarkBoxShadow(props.color, props.distance, theme.intensity, true)}` : 'none')};
   margin: auto;
   position: relative;
   border-radius: 100%;

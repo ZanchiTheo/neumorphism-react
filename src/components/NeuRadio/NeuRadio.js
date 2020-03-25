@@ -6,7 +6,7 @@ import theme from '../../theme'
 import { getDarkBoxShadow, getLightBoxShadow } from '../../utils/colors'
 
 const NeuRadio = ({
-  data, color, radio, onChange,
+  data, color, radio, onChange, distance,
 }) => {
   const [selected, setSelected] = useState(radio ? null : [])
 
@@ -33,7 +33,7 @@ const NeuRadio = ({
         && data?.length !== 0
         && data.map((d, index) => (
           <RadioBlockWrapper key={d + index}>
-            <Radio data-testid={`neuradio-radio-${d}`} color={color} selected={checkSelected(d)} onClick={() => handleClick(d)}>
+            <Radio data-testid={`neuradio-radio-${d}`} color={color} selected={checkSelected(d)} onClick={() => handleClick(d)} distance={distance}>
               <RadioInput id={d} />
             </Radio>
             <RadioText htmlFor={d}>{d}</RadioText>
@@ -47,12 +47,14 @@ NeuRadio.propTypes = {
   color: PropTypes.string,
   radio: PropTypes.bool,
   onChange: PropTypes.func,
+  distance: PropTypes.number,
 }
 NeuRadio.defaultProps = {
   data: null,
   color: theme.colors.lightGray,
   radio: false,
   onChange: null,
+  distance: 4,
 }
 
 /** @component */
@@ -96,7 +98,7 @@ const Radio = styled.button`
   border: none;
   border-radius: 100%;
   background-color: ${(props) => props.color};
-  box-shadow: ${(props) => (props.selected ? `${getLightBoxShadow(props.color, 2, theme.intensity, true)}, ${getDarkBoxShadow(props.color, 2, theme.intensity, true)}` : `${getLightBoxShadow(props.color, 4, theme.intensity, false)}, ${getDarkBoxShadow(props.color, 4, theme.intensity, false)}`)};
+  box-shadow: ${(props) => (props.selected ? `${getLightBoxShadow(props.color, 2, theme.intensity, true)}, ${getDarkBoxShadow(props.color, 2, theme.intensity, true)}` : `${getLightBoxShadow(props.color, props.distance, theme.intensity, false)}, ${getDarkBoxShadow(props.color, props.distance, theme.intensity, false)}`)};
   position: relative;
   font-size: 20px;
   color: ${() => theme.colors.darkGray};

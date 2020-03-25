@@ -4,8 +4,8 @@ import styled from '@emotion/styled'
 import theme from '../../theme'
 import NeuDiv from '../NeuDiv/NeuDiv'
 
-const NeuProgress = ({ progress, color }) => (
-  <NeuDiv height={45} color={color} radius={10}>
+const NeuProgress = ({ progress, color, distance }) => (
+  <NeuDiv height={45} color={color} radius={10} distance={distance}>
     <ProgressWrapper data-testid="neuprogress-wrapper">
       <NeuDiv distance={3} height={15} color={color} radius={4} revert>
         <Progress progress={progress > 100 ? 100 : progress} radius={4} data-testid="neuprogress-progress" />
@@ -16,10 +16,12 @@ const NeuProgress = ({ progress, color }) => (
 NeuProgress.propTypes = {
   progress: PropTypes.number,
   color: PropTypes.string,
+  distance: PropTypes.number,
 }
 NeuProgress.defaultProps = {
   progress: 0,
   color: theme.colors.lightGray,
+  distance: theme.distance,
 }
 
 /** @component */

@@ -12,14 +12,18 @@ import { NeuProgress } from "neumorphism-react";
 <NeuProgress progress={15} color="#6a8d88" />
 ```
 
-```jsx { "props": { "style": { "backgroundColor": "#929292", "textAlign": "center", "padding": "60px 20px" } } }
-import { NeuProgress } from "neumorphism-react";
-  
-<NeuProgress progress={50} />
-```
-
 ```jsx { "props": { "style": { "backgroundColor": "#5f3d27", "textAlign": "center", "padding": "60px 20px" } } }
 import { NeuProgress } from "neumorphism-react";
   
-<NeuProgress progress={90} color="5f3d27" />
+<NeuProgress progress={50} color="5f3d27" />
+```
+
+#### Distance ####
+
+You can play with the distance prop to control the elevation of the NeuProgress component. Base value is 5.
+
+```jsx { "props": { "style": { "backgroundColor": "#929292", "textAlign": "center", "padding": "60px 20px" } } }
+import { NeuProgress } from "neumorphism-react";
+  
+<NeuProgress progress={90} distance={3} />
 ```

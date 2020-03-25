@@ -21,3 +21,13 @@ import { NeuClock } from "neumorphism-react";
   
 <NeuClock donut />
 ```
+
+#### Distance ####
+
+You can play with the distance prop to control the elevation of the NeuClock component. Base value is 5.
+
+```jsx { "props": { "style": { "backgroundColor": "#8d3c37", "textAlign": "center", "padding": "60px 20px" } } }
+import { NeuClock } from "neumorphism-react";
+  
+<NeuClock color="#8d3c37" distance={3} />
+```

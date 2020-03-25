@@ -2,6 +2,8 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import { matchers } from 'jest-emotion'
 import NeuDiv from '../../src/components/NeuDiv/NeuDiv'
+import { getLightBoxShadow, getDarkBoxShadow } from '../../src/utils/colors'
+import theme from '../../src/theme'
 
 // Add the custom matchers provided by 'jest-emotion'
 expect.extend(matchers)
@@ -16,7 +18,7 @@ describe('NeuDiv', () => {
     expect(queryByTestId('neudiv-wrapper')).toHaveStyleRule('height', '100%')
     // Use the default border-radius which is 25px
     expect(queryByTestId('neudiv-wrapper')).toHaveStyleRule('border-radius', '25px')
-    expect(queryByTestId('neudiv-wrapper')).toHaveStyleRule('box-shadow', '5px 5px 10px #757575,-5px -5px 10px #afafaf')
+    expect(queryByTestId('neudiv-wrapper')).toHaveStyleRule('box-shadow', `${getLightBoxShadow(theme.colors.lightGray, theme.distance, theme.intensity, false)},${getDarkBoxShadow(theme.colors.lightGray, theme.distance, theme.intensity, false)}`)
   })
 
   it('Renders without error a custom NeuDiv', () => {
@@ -27,6 +29,6 @@ describe('NeuDiv', () => {
     expect(queryByTestId('neudiv-wrapper')).toHaveStyleRule('width', '10px')
     expect(queryByTestId('neudiv-wrapper')).toHaveStyleRule('height', '10px')
     expect(queryByTestId('neudiv-wrapper')).toHaveStyleRule('border-radius', '10px')
-    expect(queryByTestId('neudiv-wrapper')).toHaveStyleRule('box-shadow', 'inset 5px 5px 10px #757575,inset -5px -5px 10px #afafaf')
+    expect(queryByTestId('neudiv-wrapper')).toHaveStyleRule('box-shadow', `${getLightBoxShadow(theme.colors.lightGray, theme.distance, theme.intensity, true)},${getDarkBoxShadow(theme.colors.lightGray, theme.distance, theme.intensity, true)}`)
   })
 })

@@ -2,6 +2,8 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import { matchers } from 'jest-emotion'
 import NeuClock from '../../src/components/NeuClock/NeuClock'
+import theme from '../../src/theme'
+import { getDarkBoxShadow, getLightBoxShadow } from '../../src/utils/colors'
 
 // Add the custom matchers provided by 'jest-emotion'
 expect.extend(matchers)
@@ -28,6 +30,6 @@ describe('NeuClock', () => {
     expect(queryByTestId('neuclock-clock')).toHaveStyleRule('width', '260px')
     expect(queryByTestId('neuclock-clock')).toHaveStyleRule('height', '260px')
     expect(queryByTestId('neuclock-clock')).toHaveStyleRule('border-radius', '100%')
-    expect(queryByTestId('neuclock-innerclock')).toHaveStyleRule('box-shadow', 'inset 5px 5px 10px #757575,inset -5px -5px 10px #afafaf')
+    expect(queryByTestId('neuclock-innerclock')).toHaveStyleRule('box-shadow', `${getLightBoxShadow(theme.colors.lightGray, theme.distance, theme.intensity, true)},${getDarkBoxShadow(theme.colors.lightGray, theme.distance, theme.intensity, true)}`)
   })
 })
