@@ -2,6 +2,8 @@
 
 Neumorphism React is a React neumorphism components library designed to provide ready to use components following the neumorphism UI/UX trend.
 
+![Presentation picture](readme/readme_picture.png)
+
 ## Documentation ##
 
 You will find the full documentation and examples of the component library [here](https://zanchitheo.github.io/neumorphism-react/)

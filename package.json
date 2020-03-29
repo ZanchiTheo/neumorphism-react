@@ -22,7 +22,8 @@
   "browser": "lib/index.umd.js",
   "module": "lib/index.es.js",
   "files": [
-    "/lib"
+    "/lib",
+    "/readme"
   ],
   "scripts": {
     "start": "styleguidist server",
