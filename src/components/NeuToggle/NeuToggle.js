@@ -33,7 +33,9 @@ const sizes = {
   },
 }
 
-const NeuToggle = ({ size, color, onChange }) => {
+const NeuToggle = ({
+  size, color, onChange, distance,
+}) => {
   const [toggle, setToggle] = useState(false)
   const { divWidth, divHeight, divRadius } = sizes[size] || {}
 
@@ -46,7 +48,7 @@ const NeuToggle = ({ size, color, onChange }) => {
   }
 
   return (
-    <ToggleWrapper data-testid="neutoggle-wrapper" width={divWidth} height={divHeight} radius={divRadius} color={color}>
+    <ToggleWrapper data-testid="neutoggle-wrapper" width={divWidth} height={divHeight} radius={divRadius} color={color} distance={distance}>
       <Toggle data-testid="neutoggle-toggle" size={sizes[size]} toggle={toggle} onClick={handleClick} color={color} />
     </ToggleWrapper>
   )
@@ -55,11 +57,13 @@ NeuToggle.propTypes = {
   size: PropTypes.oneOf(['big', 'medium', 'small']),
   color: PropTypes.string,
   onChange: PropTypes.func,
+  distance: PropTypes.func,
 }
 NeuToggle.defaultProps = {
   size: 'small',
   color: theme.colors.lightGray,
   onChange: null,
+  distance: theme.distance,
 }
 
 /** @component */
@@ -68,7 +72,7 @@ export default NeuToggle
 const ToggleWrapper = styled.div`
   border-radius: ${(props) => `${props.radius}px`};
   background: ${() => theme.colors.lightGray};
-  box-shadow: ${(props) => `${getLightBoxShadow(props.color, theme.distance, theme.intensity, false)}, ${getDarkBoxShadow(props.color, theme.distance, theme.intensity, false)}`};
+  box-shadow: ${(props) => `${getLightBoxShadow(props.color, props.distance, theme.intensity, false)}, ${getDarkBoxShadow(props.color, props.distance, theme.intensity, false)}`};
   margin: auto;
   width: ${(props) => `${props.width}px`};
   height: ${(props) => `${props.height}px`};
