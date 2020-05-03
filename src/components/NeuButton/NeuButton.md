@@ -1,6 +1,6 @@
 This component is a basic button.
 
-### Fully customizable ###
+### Props ###
 
 #### Color ####
 
@@ -12,8 +12,8 @@ Like any component of this lib, you are free to choose the color you want, just 
 import { NeuButton } from "neumorphism-react";
 
 <NeuButton
-  width={150}
-  height={100}
+  width="150px"
+  height="100px"
   onClick={() => console.log("Button cliked !")}
   color="#5f3d27"
 />
@@ -28,8 +28,8 @@ import { NeuButton } from "neumorphism-react";
 
 <>
   <NeuButton
-    width={150}
-    height={100}
+    width="150px"
+    height="100px"
     onClick={() => console.log("Button cliked !")}
     color="#477854"
   >
@@ -37,8 +37,8 @@ import { NeuButton } from "neumorphism-react";
   </NeuButton>
   <br /><br /><br /><br />
   <NeuButton
-    width={150}
-    height={100}
+    width="150px"
+    height="100px"
     onClick={() => console.log("Button cliked !")}
     color="#477854"
   >
@@ -55,8 +55,8 @@ You can specify the border radius you want to apply to the NeuButton component i
 import { NeuButton } from "neumorphism-react";
 
 <NeuButton
-  width={150}
-  height={100}
+  width="150px"
+  height="100px"
   onClick={() => console.log("Button cliked !")}
   color="#c5c5c5"
   radius={10}
@@ -73,7 +73,7 @@ Last but not least, you can choose the width and height of your NeuButton in px.
 import { NeuButton } from "neumorphism-react";
 
 <NeuButton
-  height={70}
+  height="70"
   onClick={() => console.log("Button cliked !")}
   radius={10}
 >
@@ -90,8 +90,8 @@ import { NeuButton } from "neumorphism-react";
   
 <>
   <NeuButton
-    width={150}
-    height={100}
+    width="150px"
+    height="100px"
     onClick={() => console.log("Button cliked !")}
     color="#8d3c37"
     distance={3}
@@ -100,8 +100,8 @@ import { NeuButton } from "neumorphism-react";
   </NeuButton>
   <br /><br /><br /><br />
   <NeuButton
-    width={150}
-    height={100}
+    width="150px"
+    height="100px"
     onClick={() => console.log("Button cliked !")}
     color="#8d3c37"
     distance={8}
@@ -109,4 +109,44 @@ import { NeuButton } from "neumorphism-react";
     Far
   </NeuButton>
 </>
+```
+
+#### Disable button ####
+
+You can specify whether the button is disabled or not.
+
+```jsx { "props": { "style": { "backgroundColor": "#c5c5c5", "textAlign": "center", "padding": "60px 30px" } } }
+import { NeuButton } from "neumorphism-react";
+
+<NeuButton
+  width="150px"
+  height="100px"
+  onClick={() => console.log("Button cliked !")}
+  color="#c5c5c5"
+  radius={10}
+  disabled
+>
+  Click me !
+</NeuButton>
+```
+
+### Fully customizable ###
+
+The NeuButton component support prop propagation and style propagation. Thus you can pass your how styles and props to the component.
+
+! Make sure that the styles and props you pass to the component will not interfere with the component behavior !
+
+```jsx { "props": { "style": { "backgroundColor": "#5f3d27", "textAlign": "center", "padding": "60px 30px" } } }
+import { NeuButton } from "neumorphism-react";
+
+<NeuButton
+  width="150px"
+  height="100px"
+  onClick={() => console.log("Button cliked !")}
+  color="#5f3d27"
+  onMouseUp={() => alert('on mouse up !')}
+  style={{ border: '2px dashed #929292', color: 'white', fontSize: '1.2rem' }}
+>
+  Button with custom styles and props
+</NeuButton>
 ```

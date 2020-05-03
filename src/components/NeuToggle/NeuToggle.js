@@ -57,7 +57,7 @@ NeuToggle.propTypes = {
   size: PropTypes.oneOf(['big', 'medium', 'small']),
   color: PropTypes.string,
   onChange: PropTypes.func,
-  distance: PropTypes.func,
+  distance: PropTypes.number,
 }
 NeuToggle.defaultProps = {
   size: 'small',

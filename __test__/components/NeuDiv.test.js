@@ -22,7 +22,7 @@ describe('NeuDiv', () => {
   })
 
   it('Renders without error a custom NeuDiv', () => {
-    const { queryByTestId } = render(<NeuDiv revert width={10} height={10} radius={10} />)
+    const { queryByTestId } = render(<NeuDiv revert width="10px" height="10px" radius={10} />)
 
     expect(queryByTestId('neudiv-wrapper')).not.toBeNull()
 

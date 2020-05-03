@@ -12,9 +12,9 @@ Like any component of this lib, you are free to choose the color you want, just 
 import { NeuDiv } from "neumorphism-react";
 
 <>
-  <NeuDiv width={150} height={100} color="#5f3d27" />
+  <NeuDiv width="150px" height="100px" color="#5f3d27" />
   <br /><br />
-  <NeuDiv width={150} height={100} revert color="#5f3d27" />
+  <NeuDiv width="150px" height="100px" revert color="#5f3d27" />
 </>
 ```
 
@@ -26,13 +26,13 @@ You can play with the distance prop to control the elevation of the NeuDiv compo
 import { NeuDiv } from "neumorphism-react";
   
 <>
-  <NeuDiv width={150} height={100} color="#477854" distance={3} />
+  <NeuDiv width="150px" height="100px" color="#477854" distance={3} />
   <br /><br />
-  <NeuDiv width={150} height={100} revert color="#477854" distance={3} />
+  <NeuDiv width="150px" height="100px" revert color="#477854" distance={3} />
   <br /><br /><br /><br />
-  <NeuDiv width={150} height={100} color="#477854" distance={8} />
+  <NeuDiv width="150px" height="100px" color="#477854" distance={8} />
   <br /><br />
-  <NeuDiv width={150} height={100} revert color="#477854" distance={8} />
+  <NeuDiv width="150px" height="100px" revert color="#477854" distance={8} />
 </>
 ```
 
@@ -44,9 +44,9 @@ You can specify the border radius you want to apply to the NeuDiv component in p
 import { NeuDiv } from "neumorphism-react";
   
 <>
-  <NeuDiv width={150} height={100} color="#c5c5c5" radius={10} />
+  <NeuDiv width="150px" height="100px" color="#c5c5c5" radius={10} />
   <br /><br />
-  <NeuDiv width={150} height={100} revert color="#c5c5c5" radius={50} />
+  <NeuDiv width="150px" height="100px" revert color="#c5c5c5" radius={50} />
 </>
 ```
 
@@ -59,8 +59,26 @@ import { NeuDiv } from "neumorphism-react";
   
 <>
   {/* The NeuDiv will use 100% of his parent div */}
-  <NeuDiv height={100} />
+  <NeuDiv height="100%" />
   <br /><br />
-  <NeuDiv width={100} height={150} revert />
+  <NeuDiv width="100px" height="150px" revert />
 </>
+```
+
+### Fully customizable ###
+
+The NeuDiv component support prop propagation and style propagation. Thus you can pass your how styles and props to the component.
+
+! Make sure that the styles and props you pass to the component will not interfere with the component behavior !
+
+```jsx { "props": { "style": { "backgroundColor": "#5f3d27", "textAlign": "center", "padding": "60px 30px" } } }
+import { NeuDiv } from "neumorphism-react";
+
+<NeuDiv
+  width="150px"
+  height="100px"
+  color="#5f3d27"
+  onMouseUp={() => alert('on mouse up !')}
+  style={{ border: '2px dashed #929292', cursor: 'pointer' }}
+/>
 ```

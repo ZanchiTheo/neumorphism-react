@@ -9,7 +9,7 @@ import { getPercentageDecimal } from '../../utils/number'
 const shadowDistance = 3
 
 const NeuSlider = ({
-  min, max, color, onChange, distance,
+  min, max, color, onChange, distance, ...props
 }) => {
   const [value, setValue] = useState(0)
 
@@ -22,7 +22,8 @@ const NeuSlider = ({
   }
 
   return (
-    <NeuDiv distance={distance} height={45} color={color} radius={10}>
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    <NeuDiv distance={distance} height="45px" color={color} radius={10} {...props}>
       <Slider data-testid="neuslider-slider" min={min} max={max} value={value} color={color} onChange={(event) => handleChange(event)} percentage={getPercentageDecimal(value, max)} />
     </NeuDiv>
   )

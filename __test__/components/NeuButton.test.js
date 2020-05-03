@@ -32,7 +32,7 @@ describe('NeuButton', () => {
   it('Fires a function on click', async () => {
     const test = jest.fn()
 
-    const { queryByTestId } = render(<NeuButton width={10} height={10} radius={10} onClick={test} />)
+    const { queryByTestId } = render(<NeuButton width="10px" height="10px" radius={10} onClick={test} />)
 
     expect(queryByTestId('neubutton-wrapper')).not.toBeNull()
 

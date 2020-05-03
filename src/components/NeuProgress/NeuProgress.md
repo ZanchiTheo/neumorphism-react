@@ -27,3 +27,9 @@ import { NeuProgress } from "neumorphism-react";
   
 <NeuProgress progress={90} distance={3} />
 ```
+
+### Fully customizable ###
+
+The NeuProgress component support prop propagation and style propagation. Thus you can pass your how styles and props to the component.
+
+! Make sure that the styles and props you pass to the component will not interfere with the component behavior !

@@ -24,8 +24,8 @@ import { NeuTextInput } from "neumorphism-react";
     placeholder="Type some text"
     color="#6a8d88"
     onChange={(newValue) => console.log("newValue : ", newValue)}
-    width={500}
-    height={40}
+    width="500px"
+    height="40px"
     distance={2}
     onChange={(newValue) => console.log("newValue : ", newValue)}
     fontSize={15}
@@ -33,3 +33,9 @@ import { NeuTextInput } from "neumorphism-react";
   />
 </>
 ```
+
+### Fully customizable ###
+
+The NeuTextInput component support prop propagation and style propagation. Thus you can pass your how styles and props to the component.
+
+! Make sure that the styles and props you pass to the component will not interfere with the component behavior !
