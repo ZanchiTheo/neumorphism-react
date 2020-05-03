@@ -23,3 +23,9 @@ import { NeuSlider } from "neumorphism-react";
   />
 </>
 ```
+
+### Fully customizable ###
+
+The NeuSlider component support prop propagation and style propagation. Thus you can pass your how styles and props to the component.
+
+! Make sure that the styles and props you pass to the component will not interfere with the component behavior !

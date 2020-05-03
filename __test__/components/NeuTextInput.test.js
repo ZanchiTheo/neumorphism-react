@@ -10,23 +10,21 @@ describe('NeuTextInput', () => {
   it('Renders without error with default value', () => {
     const { queryByTestId } = render(<NeuTextInput />)
 
-    expect(queryByTestId('neutextinput-wrapper')).not.toBeNull()
     expect(queryByTestId('neutextinput-input')).not.toBeNull()
     // Use the default width and height which is 100% for width and 50px for height
-    expect(queryByTestId('neutextinput-wrapper')).toHaveStyleRule('width', '100%')
-    expect(queryByTestId('neutextinput-wrapper')).toHaveStyleRule('height', '50px')
+    expect(queryByTestId('neutextinput-input')).toHaveStyleRule('width', '100%')
+    expect(queryByTestId('neutextinput-input')).toHaveStyleRule('height', '50px')
     // The default fontSize is 20px
     expect(queryByTestId('neutextinput-input')).toHaveStyleRule('font-size', '20px')
   })
 
   it('Renders without error with custom value', () => {
-    const { queryByTestId } = render(<NeuTextInput fontSize={22} height={60} />)
+    const { queryByTestId } = render(<NeuTextInput fontSize={22} height="60px" />)
 
-    expect(queryByTestId('neutextinput-wrapper')).not.toBeNull()
     expect(queryByTestId('neutextinput-input')).not.toBeNull()
     // Use the default width and height which is 100% for width and 50px for height
-    expect(queryByTestId('neutextinput-wrapper')).toHaveStyleRule('width', '100%')
-    expect(queryByTestId('neutextinput-wrapper')).toHaveStyleRule('height', '60px')
+    expect(queryByTestId('neutextinput-input')).toHaveStyleRule('width', '100%')
+    expect(queryByTestId('neutextinput-input')).toHaveStyleRule('height', '60px')
     // The default fontSize is 20px
     expect(queryByTestId('neutextinput-input')).toHaveStyleRule('font-size', '22px')
   })

@@ -5,16 +5,27 @@ import theme from '../../theme'
 import { getDarkBoxShadow, getLightBoxShadow } from '../../utils/colors'
 
 const NeuDiv = ({
-  children, width, height, revert, color, radius, distance, column,
+  children, width, height, revert, color, radius, distance, column, ...props
 }) => (
-  <DivWrapper data-testid="neudiv-wrapper" width={width} height={height} revert={revert} color={color} radius={radius} distance={distance} column={column}>
+  <DivWrapper
+    data-testid="neudiv-wrapper"
+    width={width}
+    height={height}
+    revert={revert}
+    color={color}
+    radius={radius}
+    distance={distance}
+    column={column}
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    {...props}
+  >
     {children}
   </DivWrapper>
 )
 NeuDiv.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-  width: PropTypes.number,
-  height: PropTypes.number,
+  width: PropTypes.string,
+  height: PropTypes.string,
   distance: PropTypes.number,
   radius: PropTypes.number,
   revert: PropTypes.bool,
@@ -23,8 +34,8 @@ NeuDiv.propTypes = {
 }
 NeuDiv.defaultProps = {
   children: null,
-  width: null,
-  height: null,
+  width: '100%',
+  height: '100%',
   distance: theme.distance,
   radius: 25,
   revert: false,
@@ -42,8 +53,8 @@ const DivWrapper = styled.div`
     ? `${getLightBoxShadow(props.color, props.distance, theme.intensity, true)}, ${getDarkBoxShadow(props.color, props.distance, theme.intensity, true)}`
     : `${getLightBoxShadow(props.color, props.distance, theme.intensity, false)}, ${getDarkBoxShadow(props.color, props.distance, theme.intensity, false)}`)};
   margin: auto;
-  width: ${(props) => (props.width ? `${props.width}px` : '100%')};
-  height: ${(props) => (props.height ? `${props.height}px` : '100%')};
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
   position: relative;
   display: flex;
   flex-direction: ${(props) => (props.column ? 'column' : 'row')};

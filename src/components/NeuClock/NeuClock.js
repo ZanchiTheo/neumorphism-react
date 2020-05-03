@@ -19,7 +19,9 @@ const tirets = [
   { hour: 12, teta: 360 },
 ]
 
-const NeuClock = ({ donut, color, distance }) => {
+const NeuClock = ({
+  donut, color, distance, ...props
+}) => {
   const size = 260
   const innerWidth = size - 20
   const innerClockWidth = 195
@@ -52,7 +54,8 @@ const NeuClock = ({ donut, color, distance }) => {
   }, [])
 
   return (
-    <Clock size={size} color={color} distance={distance} data-testid="neuclock-clock">
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    <Clock {...props} size={size} color={color} distance={distance} data-testid="neuclock-clock">
       <InnerClock size={innerClockWidth} donut={donut} color={color} distance={distance} data-testid="neuclock-innerclock">
         {tirets.map((tiret) => (
           <TiretPos key={tiret.hour} x={getX(tiret.teta)} y={getY(tiret.teta)} teta={tiret.teta}>

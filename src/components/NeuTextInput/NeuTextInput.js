@@ -5,7 +5,7 @@ import theme from '../../theme'
 import { getLightBoxShadow, getDarkBoxShadow } from '../../utils/colors'
 
 const NeuTextInput = ({
-  width, height, fontSize, placeholder, color, onChange, fontColor, distance,
+  width, height, fontSize, placeholder, color, onChange, fontColor, distance, ...props
 }) => {
   const [value, setValue] = useState('')
 
@@ -18,14 +18,25 @@ const NeuTextInput = ({
   }
 
   return (
-    <InputWrapper width={width} height={height} data-testid="neutextinput-wrapper">
-      <Input data-testid="neutextinput-input" fontSize={fontSize} placeholder={placeholder} color={color} value={value} onChange={(event) => handleChange(event)} fontColor={fontColor} distance={distance} />
-    </InputWrapper>
+    <Input
+      data-testid="neutextinput-input"
+      height={height}
+      width={width}
+      fontSize={fontSize}
+      placeholder={placeholder}
+      color={color}
+      value={value}
+      onChange={(event) => handleChange(event)}
+      fontColor={fontColor}
+      distance={distance}
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      {...props}
+    />
   )
 }
 NeuTextInput.propTypes = {
-  width: PropTypes.number,
-  height: PropTypes.number,
+  width: PropTypes.string,
+  height: PropTypes.string,
   fontSize: PropTypes.number,
   placeholder: PropTypes.string,
   color: PropTypes.string,
@@ -34,8 +45,8 @@ NeuTextInput.propTypes = {
   distance: PropTypes.number,
 }
 NeuTextInput.defaultProps = {
-  width: null,
-  height: 50,
+  width: '100%',
+  height: '50px',
   fontSize: 20,
   placeholder: 'Placeholder',
   color: theme.colors.lightGray,
@@ -47,17 +58,12 @@ NeuTextInput.defaultProps = {
 /** @component */
 export default NeuTextInput
 
-const InputWrapper = styled.div`
-  margin: auto;
-  width: ${(props) => (props.width ? `${props.width}px` : '100%')};
-  height: ${(props) => `${props.height}px`};
-  position: relative;
-`
-
 const Input = styled.input`
+  margin: auto;
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
+  position: relative;
   box-sizing: border-box;
-  width: 100%;
-  height: 100%;
   border-radius: 40px;
   background-color: ${(props) => props.color};
   border: 4px solid ${(props) => props.color};
