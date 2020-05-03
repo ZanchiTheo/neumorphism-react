@@ -70,3 +70,9 @@ import { NeuRadio } from "neumorphism-react";
   />
 </>
 ```
+
+### Fully customizable ###
+
+The NeuRadio support prop propagation and style propagation. These styles and props will be applied to the wrapper of the component. Thus you can pass your how styles and props to the component.
+
+! Make sure that the styles and props you pass to the component will not interfere with the component behavior !

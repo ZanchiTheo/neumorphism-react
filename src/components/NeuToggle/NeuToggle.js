@@ -34,7 +34,7 @@ const sizes = {
 }
 
 const NeuToggle = ({
-  size, color, onChange, distance,
+  size, color, onChange, distance, ...props
 }) => {
   const [toggle, setToggle] = useState(false)
   const { divWidth, divHeight, divRadius } = sizes[size] || {}
@@ -48,7 +48,16 @@ const NeuToggle = ({
   }
 
   return (
-    <ToggleWrapper data-testid="neutoggle-wrapper" width={divWidth} height={divHeight} radius={divRadius} color={color} distance={distance}>
+    <ToggleWrapper
+      data-testid="neutoggle-wrapper"
+      width={divWidth}
+      height={divHeight}
+      radius={divRadius}
+      color={color}
+      distance={distance}
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      {...props}
+    >
       <Toggle data-testid="neutoggle-toggle" size={sizes[size]} toggle={toggle} onClick={handleClick} color={color} />
     </ToggleWrapper>
   )

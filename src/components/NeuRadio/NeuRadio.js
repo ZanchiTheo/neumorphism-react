@@ -6,7 +6,7 @@ import theme from '../../theme'
 import { getDarkBoxShadow, getLightBoxShadow } from '../../utils/colors'
 
 const NeuRadio = ({
-  data, color, radio, onChange, distance,
+  data, color, radio, onChange, distance, ...props
 }) => {
   const [selected, setSelected] = useState(radio ? null : [])
 
@@ -28,7 +28,8 @@ const NeuRadio = ({
   const checkSelected = (d) => (radio ? d === selected : selected?.find((f) => d === f))
 
   return (
-    <Wrapper data-testid="neuradio-wrapper">
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    <Wrapper data-testid="neuradio-wrapper" {...props}>
       {data
         && data?.length !== 0
         && data.map((d, index) => (
